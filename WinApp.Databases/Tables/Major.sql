@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Major](
+	[MajorId] INT IDENTITY(1,1) PRIMARY KEY,
+	[MajorName] TEXT NOT NULL,
+	[MajorStatus] BIT NOT NULL DEFAULT 1,
+)
