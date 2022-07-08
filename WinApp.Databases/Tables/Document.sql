@@ -4,9 +4,9 @@
 	[CategoryId] INT NOT NULL,
 	[UploaderId] INT NOT NULL,
 	[ApproverId] INT NOT NULL,
-	[DocumentType] TEXT NOT NULL,
+	[DocumentType] varchar(512) NOT NULL,
 	[DocumentData] VARBINARY(MAX) NOT NULL,
-	[DocumentUrl] TEXT NOT NULL,
+	[DocumentUrl] varchar(512) NOT NULL,
 	[DocumentStatus] BIT NOT NULL DEFAULT 1,
 	[IsApproved] BIT NOT NULL DEFAULT 0
 )
