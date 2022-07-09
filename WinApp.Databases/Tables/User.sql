@@ -4,5 +4,6 @@
 	[UserEmail] varchar(512) NOT NULL,
 	[UserFullname] TEXT NOT NULL,
 	[UserPassword] TEXT NOT NULL,
-	[UserStatus] BIT NOT NULL DEFAULT 1
+	[UserStatus] BIT NOT NULL DEFAULT 1,
+	[UserMajor] INT
 )

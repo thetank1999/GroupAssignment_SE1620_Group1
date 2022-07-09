@@ -36,6 +36,8 @@
             this.label_ConfirmPassword = new System.Windows.Forms.Label();
             this.btn_Register = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
+            this.listBox_Major = new System.Windows.Forms.ListBox();
+            this.label_Major = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tb_EmailAddress
@@ -54,7 +56,7 @@
             // 
             // tb_Password
             // 
-            this.tb_Password.Location = new System.Drawing.Point(369, 195);
+            this.tb_Password.Location = new System.Drawing.Point(369, 247);
             this.tb_Password.Name = "tb_Password";
             this.tb_Password.PasswordChar = '*';
             this.tb_Password.Size = new System.Drawing.Size(221, 31);
@@ -62,7 +64,7 @@
             // 
             // tb_ConfirmPassword
             // 
-            this.tb_ConfirmPassword.Location = new System.Drawing.Point(369, 270);
+            this.tb_ConfirmPassword.Location = new System.Drawing.Point(369, 303);
             this.tb_ConfirmPassword.Name = "tb_ConfirmPassword";
             this.tb_ConfirmPassword.PasswordChar = '*';
             this.tb_ConfirmPassword.Size = new System.Drawing.Size(221, 31);
@@ -99,7 +101,7 @@
             // label_Password
             // 
             this.label_Password.AutoSize = true;
-            this.label_Password.Location = new System.Drawing.Point(224, 201);
+            this.label_Password.Location = new System.Drawing.Point(225, 247);
             this.label_Password.Name = "label_Password";
             this.label_Password.Size = new System.Drawing.Size(91, 25);
             this.label_Password.TabIndex = 7;
@@ -108,7 +110,7 @@
             // label_ConfirmPassword
             // 
             this.label_ConfirmPassword.AutoSize = true;
-            this.label_ConfirmPassword.Location = new System.Drawing.Point(192, 276);
+            this.label_ConfirmPassword.Location = new System.Drawing.Point(192, 303);
             this.label_ConfirmPassword.Name = "label_ConfirmPassword";
             this.label_ConfirmPassword.Size = new System.Drawing.Size(160, 25);
             this.label_ConfirmPassword.TabIndex = 8;
@@ -134,11 +136,31 @@
             this.btn_Cancel.UseVisualStyleBackColor = true;
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
+            // listBox_Major
+            // 
+            this.listBox_Major.FormattingEnabled = true;
+            this.listBox_Major.ItemHeight = 25;
+            this.listBox_Major.Location = new System.Drawing.Point(369, 189);
+            this.listBox_Major.Name = "listBox_Major";
+            this.listBox_Major.Size = new System.Drawing.Size(221, 29);
+            this.listBox_Major.TabIndex = 11;
+            // 
+            // label_Major
+            // 
+            this.label_Major.AutoSize = true;
+            this.label_Major.Location = new System.Drawing.Point(238, 193);
+            this.label_Major.Name = "label_Major";
+            this.label_Major.Size = new System.Drawing.Size(62, 25);
+            this.label_Major.TabIndex = 12;
+            this.label_Major.Text = "Major:";
+            // 
             // frmRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label_Major);
+            this.Controls.Add(this.listBox_Major);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_Register);
             this.Controls.Add(this.label_ConfirmPassword);
@@ -170,5 +192,7 @@
         private System.Windows.Forms.Label label_ConfirmPassword;
         private System.Windows.Forms.Button btn_Register;
         private System.Windows.Forms.Button btn_Cancel;
+        private System.Windows.Forms.ListBox listBox_Major;
+        private System.Windows.Forms.Label label_Major;
     }
 }

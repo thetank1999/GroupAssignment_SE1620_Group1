@@ -11,6 +11,16 @@ namespace WinApp.DataProviders
 {
     public class MajorDataProvider : IMajorDataProvider
     {
+        #region [ Fields ]
+        private readonly GroupAssignmentContext _dbContext;
+        #endregion
+
+        #region [ CTor ]
+        public MajorDataProvider(GroupAssignmentContext dbContext) {
+            _dbContext = dbContext;
+        }
+        #endregion
+
         #region [Add - Update - Remove ]
         public void AddMajor(Major Major) {
             throw new NotImplementedException();
@@ -40,7 +50,14 @@ namespace WinApp.DataProviders
 
         #region [ Get List ]
         public List<Major> GetAllMajors() {
-            throw new NotImplementedException();
+            var result = new List<Major>();
+            try {
+                result = _dbContext.Majors.ToList();
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return result;
         }
         public List<Major> GetActiveMajors() {
             throw new NotImplementedException();

@@ -19,9 +19,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 WinApp.Core", "01 WinApp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 WinApp.Databases", "02 WinApp.Databases", "{83DDABD5-49DE-4922-BFCE-4C97CF395C2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinApp.Core", "WinApp.Core\WinApp.Core.csproj", "{393E3CD7-30CE-462E-9879-7715BE10D369}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinApp.Core", "WinApp.Core\WinApp.Core.csproj", "{393E3CD7-30CE-462E-9879-7715BE10D369}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "WinApp.Databases", "WinApp.Databases\WinApp.Databases.sqlproj", "{F640C26B-A32D-46F9-9AE4-2CC2CEAF7195}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06 Notes", "06 Notes", "{253971C8-2E76-4A9B-95CE-9AA2F385C810}"
+	ProjectSection(SolutionItems) = preProject
+		note.txt = note.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

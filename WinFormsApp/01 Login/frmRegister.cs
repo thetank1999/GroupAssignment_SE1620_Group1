@@ -18,15 +18,19 @@ namespace WinApp
         private readonly IDataHelper _dataHelper;
         private readonly IUserDataProviders _userDataProvider;
         private readonly IRoleDataProvider _roleDataProvider;
+        private readonly IMajorDataProvider _majorDataProvider;
         #endregion
         #region [ Ctor ]
         public frmRegister( IUserDataProviders userDataProvider,
                             IDataHelper dataHelper,
-                            IRoleDataProvider roleDataProvider) {
+                            IRoleDataProvider roleDataProvider,
+                            IMajorDataProvider majorDataProvider) {
             this._userDataProvider = userDataProvider;
             this._dataHelper = dataHelper;
-            _roleDataProvider = roleDataProvider;
+            this._roleDataProvider = roleDataProvider;
+            this._majorDataProvider = majorDataProvider;
             InitializeComponent();
+            this.AutoLoadDataIntoListBox();
         }
         #endregion
         private void btn_Register_Click(object sender, EventArgs e) {
@@ -46,6 +50,8 @@ namespace WinApp
                 userEntity.UserEmail = tb_EmailAddress.Text.Trim();
                 userEntity.UserRoleId = 2; // default -> member
                 userEntity.UserFullname = tb_Fullname.Text.Trim();
+                Major majorEntity = listBox_Major.SelectedItem as Major;
+                userEntity.UserMajorId = majorEntity.MajorId;
                 userEntity.UserPassword = tb_Password.Text.Trim();
                 _userDataProvider.AddUser(userEntity);
                 MessageBox.Show("Register Successfully");
@@ -57,11 +63,20 @@ namespace WinApp
             this.Close();
         }
 
+        private void AutoLoadDataIntoListBox() {
+            listBox_Major.Items.Clear();
+            var majorList = _majorDataProvider.GetAllMajors();
+            foreach (var major in majorList) {
+                listBox_Major.Items.Add(major);
+            }
+        }
+
         private bool IsNotValidatedInput() {
             if ((tb_EmailAddress.Text.Length == 0)
                || (tb_Fullname.Text.Length == 0)
                || (tb_Password.Text.Length == 0)
-               || (tb_ConfirmPassword.Text.Length == 0)) {
+               || (tb_ConfirmPassword.Text.Length == 0)
+               || (listBox_Major.SelectedIndex < -1)) {
                 return true;
             } else {
                 return false;

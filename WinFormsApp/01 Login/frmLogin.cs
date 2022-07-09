@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Data;
 using System.Windows.Forms;
 using WinApp;
 using WinApp.Core;
-using WinApp.Login;
 
 namespace WinFormsApp
 {
@@ -59,7 +57,7 @@ namespace WinFormsApp
         }
 
         private void btn_Register_Click(object sender, EventArgs e) {
-            var frmRegister = new frmRegister(_userDataProvider,_datahelper, _roleDataProvider);
+            var frmRegister = new frmRegister(_userDataProvider,_datahelper, _roleDataProvider,_majorDataProvider);
             frmRegister.ShowDialog();
         }
     }
