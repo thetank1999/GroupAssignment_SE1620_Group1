@@ -11,17 +11,7 @@ namespace WinApp.DataProviders
 {
     public class MajorDataProvider : IMajorDataProvider
     {
-        #region [ Fields ]
-        private readonly IDbContextFactory<GroupAssignmentContext> _dbContext;
-        #endregion
-
-        #region [ CTor ]
-        public MajorDataProvider(IDbContextFactory<GroupAssignmentContext> dbContext) {
-            this._dbContext = dbContext;
-        }
-        #endregion
-
-        #region [Add - Update - Remove - InActivate]
+        #region [Add - Update - Remove ]
         public void AddMajor(Major Major) {
             throw new NotImplementedException();
         }
@@ -31,8 +21,13 @@ namespace WinApp.DataProviders
         public void UpdateMajor(Major Major) {
             throw new NotImplementedException();
         }
+        #endregion
 
+        #region [Active- InActivate]
         public void InActivateMajor(Major Major) {
+            throw new NotImplementedException();
+        }
+        public void ActivateMajor(Major Major) {
             throw new NotImplementedException();
         }
         #endregion
@@ -47,8 +42,10 @@ namespace WinApp.DataProviders
         public List<Major> GetAllMajors() {
             throw new NotImplementedException();
         }
-
         public List<Major> GetActiveMajors() {
+            throw new NotImplementedException();
+        }
+        public List<Major> GetInActiveMajors() {
             throw new NotImplementedException();
         }
         #endregion

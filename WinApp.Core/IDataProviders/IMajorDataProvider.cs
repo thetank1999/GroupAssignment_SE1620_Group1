@@ -9,12 +9,15 @@ namespace WinApp.Core
 {
     public interface IMajorDataProvider
     {
-        #region [Add - Update - Remove - InActivate]
+        #region [Add - Update - Remove ]
         public void AddMajor(Major Major);
         public void RemoveMajor(Major Major);
         public void UpdateMajor(Major Major);
+        #endregion
 
+        #region [Active- InActivate]
         public void InActivateMajor(Major Major);
+        public void ActivateMajor(Major Major);
         #endregion
 
         #region [ Get Single]
@@ -23,8 +26,8 @@ namespace WinApp.Core
 
         #region [ Get List ]
         public List<Major> GetAllMajors();
-
         public List<Major> GetActiveMajors();
+        public List<Major> GetInActiveMajors();
         #endregion
     }
 }

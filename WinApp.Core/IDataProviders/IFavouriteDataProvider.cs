@@ -9,7 +9,7 @@ namespace WinApp.Core
 {
     public interface IFavouriteDataProvider
     {
-        #region [ Add - Update - Remove - InActivate ]
+        #region [ Add - Update - Remove ]
         public void AddFavourite(Favourite Favourite);
         public void RemoveFavourite(Favourite Favourite);
         public void UpdateFavourite(Favourite Favourite);

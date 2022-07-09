@@ -24,10 +24,9 @@ namespace WinFormsApp
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //AddServicesProvider(_configuration);
             
             var host = CreateHostBuilder().Build();
-            //  AddServicesProvider(_configuration);
+            AddServicesProvider(_configuration);
             _service = host.Services;
             Application.Run(_service.GetRequiredService<frmLogin>());
         }
@@ -36,11 +35,15 @@ namespace WinFormsApp
             var connectionString = _configuration.GetConnectionString("DbSqlConnection");
             return Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) => {
-                    services.AddDbContext<GroupAssignmentContext>();
-                    services.AddScoped<IUserDataProviders, UserDataProviders>();
-                    services.AddScoped<IRoleDataProvider, RoleDataProvider>();
-                    services.AddScoped<IMajorDataProvider, MajorDataProvider>();
-                    services.AddScoped<frmLogin>();
+                    services.AddSingleton<GroupAssignmentContext>();
+                    services.AddSingleton<IUserDataProviders, UserDataProviders>();
+                    services.AddSingleton<IRoleDataProvider, RoleDataProvider>();
+                    services.AddSingleton<IMajorDataProvider, MajorDataProvider>();
+                    services.AddSingleton<IFavouriteDataProvider, FavouriteDataProvider>();
+                    services.AddSingleton<IDocumentDataProvider, DocumentDataProvider>();
+                    services.AddSingleton<ICategoryDataProvider, CategoryDataProvider>();
+                    services.AddSingleton<IDataHelper, DataHelper>();
+                    services.AddSingleton<frmLogin>();
                     
                 });
         }

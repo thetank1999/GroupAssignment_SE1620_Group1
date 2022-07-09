@@ -9,24 +9,31 @@ namespace WinApp.Core
 {
     public interface IDocumentDataProvider
     {
-        #region [Add - Update - Remove - InActivate]
+        #region [Add - Update - Remove ]
         public void AddDocument(Document Document);
 
         public void RemoveDocument(Document Document);
 
         public void UpdateDocument(Document Document);
 
-        public void InActivateDocument(Document Document);
+       
         #endregion
 
         #region [ Get Single]
         public Document GetDocumentById(int id);
         #endregion
 
+        #region [Activate - InActivate ]
+        public void InActivateDocument(Document Document);
+        public void ActiveDocument (Document Document);
+        #endregion
+
         #region [ Get List ]
         public List<Document> GetAllDocuments();
 
         public List<Document> GetActiveDocuments();
+
+        public List<Document> GetInActiveDocuments();
 
         public List<Document> GetDocumentsByUploaderId(int id);
         
