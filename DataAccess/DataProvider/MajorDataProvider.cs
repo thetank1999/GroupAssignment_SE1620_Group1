@@ -44,7 +44,14 @@ namespace WinApp.DataProviders
 
         #region [ Get Single]
         public Major GetMajorById(int id) {
-            throw new NotImplementedException();
+            Major major = null;
+            try {
+                major = _dbContext.Majors.FirstOrDefault(x => x.MajorId == id);
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return major;
         }
         #endregion
 

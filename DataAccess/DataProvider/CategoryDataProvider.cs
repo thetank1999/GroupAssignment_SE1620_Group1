@@ -9,6 +9,16 @@ using WinApp.SqlProvider;
 namespace WinApp.DataProviders {
     public class CategoryDataProvider : ICategoryDataProvider
     {
+        #region [ Fields ]
+        private readonly GroupAssignmentContext _dbContext;
+        #endregion
+
+        #region [ CTor ]
+        public CategoryDataProvider(GroupAssignmentContext dbContext) {
+            _dbContext = dbContext;
+        }
+        #endregion
+
         #region [Add - Update - Remove ]
         public void AddCategory(Category Category) {
             throw new NotImplementedException();

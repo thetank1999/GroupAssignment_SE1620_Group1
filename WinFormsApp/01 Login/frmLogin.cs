@@ -50,8 +50,8 @@ namespace WinFormsApp
                                                 _categoryDataProvider,
                                                 _datahelper,
                                                 dbEntity);
-                this.Close();
-                frmGeneral.ShowDialog();
+                //this.Close();
+                frmGeneral.Show();
             }
         }
 

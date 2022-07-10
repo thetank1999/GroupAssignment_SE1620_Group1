@@ -43,7 +43,6 @@
             this.btn_PersonalInformation.TabIndex = 0;
             this.btn_PersonalInformation.Text = "Personal Information";
             this.btn_PersonalInformation.UseVisualStyleBackColor = true;
-            this.btn_PersonalInformation.Visible = false;
             this.btn_PersonalInformation.Click += new System.EventHandler(this.btn_PersonalInformation_Click);
             // 
             // label_WelcomeBack
@@ -64,7 +63,6 @@
             this.btn_MyFavourite.TabIndex = 1;
             this.btn_MyFavourite.Text = "My Favourite";
             this.btn_MyFavourite.UseVisualStyleBackColor = true;
-            this.btn_MyFavourite.Visible = false;
             this.btn_MyFavourite.Click += new System.EventHandler(this.btn_MyFavourite_Click);
             // 
             // button_DocumentList
@@ -75,7 +73,6 @@
             this.button_DocumentList.TabIndex = 2;
             this.button_DocumentList.Text = "Document List";
             this.button_DocumentList.UseVisualStyleBackColor = true;
-            this.button_DocumentList.Visible = false;
             this.button_DocumentList.Click += new System.EventHandler(this.button_DocumentList_Click);
             // 
             // btn_UploadDocument
@@ -91,7 +88,7 @@
             // 
             // btn_ApproveDocument
             // 
-            this.btn_ApproveDocument.Location = new System.Drawing.Point(12, 569);
+            this.btn_ApproveDocument.Location = new System.Drawing.Point(12, 445);
             this.btn_ApproveDocument.Name = "btn_ApproveDocument";
             this.btn_ApproveDocument.Size = new System.Drawing.Size(183, 98);
             this.btn_ApproveDocument.TabIndex = 4;
@@ -102,7 +99,7 @@
             // 
             // btn_DocumentManagement
             // 
-            this.btn_DocumentManagement.Location = new System.Drawing.Point(12, 685);
+            this.btn_DocumentManagement.Location = new System.Drawing.Point(12, 445);
             this.btn_DocumentManagement.Name = "btn_DocumentManagement";
             this.btn_DocumentManagement.Size = new System.Drawing.Size(183, 98);
             this.btn_DocumentManagement.TabIndex = 5;
@@ -113,7 +110,7 @@
             // 
             // btn_UserManagement
             // 
-            this.btn_UserManagement.Location = new System.Drawing.Point(12, 805);
+            this.btn_UserManagement.Location = new System.Drawing.Point(12, 565);
             this.btn_UserManagement.Name = "btn_UserManagement";
             this.btn_UserManagement.Size = new System.Drawing.Size(183, 98);
             this.btn_UserManagement.TabIndex = 6;
@@ -136,7 +133,7 @@
             this.Controls.Add(this.label_WelcomeBack);
             this.Controls.Add(this.btn_PersonalInformation);
             this.Name = "frmGeneral";
-            this.Text = "frmGeneral";
+            this.Text = "General";
             this.ResumeLayout(false);
             this.PerformLayout();
 

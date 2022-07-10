@@ -22,6 +22,7 @@ namespace WinApp
         private readonly IDocumentDataProvider _documentDataProvider;
         private readonly ICategoryDataProvider _categoryDataProvider;
         private readonly IDataHelper _datahelper;
+        private readonly User _user;
         #endregion
 
         #region [ Ctor ]
@@ -34,13 +35,15 @@ namespace WinApp
                         IDataHelper datahelper,
                         User user) {
             this._userDataProvider = userDataProvider;
-            _roleDataProvider = roleDataProvider;
-            _majorDataProvider = majorDataProvider;
-            _favouriteDataProvider = favouriteDataProvider;
-            _documentDataProvider = documentDataProvider;
-            _categoryDataProvider = categoryDataProvider;
-            _datahelper = datahelper;
+            this._roleDataProvider = roleDataProvider;
+            this._majorDataProvider = majorDataProvider;
+            this._favouriteDataProvider = favouriteDataProvider;
+            this._documentDataProvider = documentDataProvider;
+            this._categoryDataProvider = categoryDataProvider;
+            this._datahelper = datahelper;
+            this._user = user;
             InitializeComponent();
+            this.SegregationOfDuty(_user);
         }
         #endregion
 
@@ -82,7 +85,25 @@ namespace WinApp
 
         #region [ Segregation of Duty ]
         private void SegregationOfDuty(User user) {
-            
+            label_WelcomeBack.Text = $"Welcome Back {user.UserFullname}";
+            switch (user.UserRoleId) {
+                case 1: // is an admin 
+                    {
+                        btn_DocumentManagement.Visible = true;
+                        btn_UserManagement.Visible = true;
+                        break;
+                    }
+                case 3: {// is a lecturer
+
+                        btn_UploadDocument.Visible = true;
+                        break;
+                    }
+                case 4: {// is a head of lecturer
+
+                        btn_ApproveDocument.Visible = true;
+                        break;
+                    }
+            }
         }
         #endregion
     }

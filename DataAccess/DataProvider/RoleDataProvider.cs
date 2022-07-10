@@ -11,6 +11,15 @@ namespace WinApp.DataProviders
 {
     public class RoleDataProvider : IRoleDataProvider
     {
+        #region [ Fields ]
+        private readonly GroupAssignmentContext _dbContext;
+        #endregion
+
+        #region [ CTor ]
+        public RoleDataProvider(GroupAssignmentContext dbContext) {
+            _dbContext = dbContext;
+        }
+        #endregion
         #region [Add - Update - Remove ]
         public void AddRole(Role Role) {
             throw new NotImplementedException();
@@ -34,13 +43,27 @@ namespace WinApp.DataProviders
 
         #region [ Get Single]
         public Role GetRoleById(int id) {
-            throw new NotImplementedException();
+            Role role = null;
+            try {
+                role = _dbContext.Roles.FirstOrDefault(x => x.RoleId == id);
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return role;
         }
         #endregion
 
         #region [ Get List ]
         public List<Role> GetAllRoles() {
-            throw new NotImplementedException();
+            var result = new List<Role>();
+            try {
+                result = _dbContext.Roles.ToList();
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return result;
         }
 
         public List<Role> GetActiveRoles() {

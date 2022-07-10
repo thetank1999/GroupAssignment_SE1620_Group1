@@ -36,10 +36,32 @@ namespace WinApp.DataProviders
             }
         }
         public void RemoveUser(User user) {
-            throw new NotImplementedException();
+            try {
+                var dbEntity = _dbContext.Users.FirstOrDefault(x => x.UserId == user.UserId);
+                if (dbEntity == null) {
+                    _dbContext.Users.Remove(user);
+                    _dbContext.SaveChanges();
+                } else {
+                    throw new Exception();
+                }
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
         }
         public void UpdateUser(User user) {
-            throw new NotImplementedException();
+            try {
+                var dbEntity = _dbContext.Users.FirstOrDefault(x => x.UserId == user.UserId);
+                if (dbEntity == null) {
+                    _dbContext.Users.Update(user);
+                    _dbContext.SaveChanges();
+                } else {
+                    throw new Exception();
+                }
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
         }
 
         public void InActivateUser(User user) {
@@ -85,7 +107,14 @@ namespace WinApp.DataProviders
 
         #region [ Get List ]
         public List<User> GetAllUsers() {
-            throw new NotImplementedException();
+            var result = new List<User>();
+            try {
+                result = _dbContext.Users.ToList();
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return result;
         }
 
         public List<User> GetActiveUsers() {

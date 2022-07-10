@@ -10,6 +10,16 @@ namespace WinApp.DataProviders
 {
     public class DocumentDataProvider : IDocumentDataProvider
     {
+        #region [ Fields ]
+        private readonly GroupAssignmentContext _dbContext;
+        #endregion
+
+        #region [ CTor ]
+        public DocumentDataProvider(GroupAssignmentContext dbContext) {
+            _dbContext = dbContext;
+        }
+        #endregion
+
         #region [Add - Update - Remove ]
         public void AddDocument(Document Document) {
             throw new NotImplementedException();
