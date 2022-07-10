@@ -50,8 +50,8 @@ namespace WinApp
                 userEntity.UserEmail = tb_EmailAddress.Text.Trim();
                 userEntity.UserRoleId = 2; // default -> member
                 userEntity.UserFullname = tb_Fullname.Text.Trim();
-                Major majorEntity = listBox_Major.SelectedItem as Major;
-                userEntity.UserMajorId = majorEntity.MajorId;
+                var majorEntity = listBox_Major.SelectedItem as Major;
+                userEntity.UserMajor = majorEntity.MajorId;
                 userEntity.UserPassword = tb_Password.Text.Trim();
                 _userDataProvider.AddUser(userEntity);
                 MessageBox.Show("Register Successfully");
@@ -76,7 +76,8 @@ namespace WinApp
                || (tb_Fullname.Text.Length == 0)
                || (tb_Password.Text.Length == 0)
                || (tb_ConfirmPassword.Text.Length == 0)
-               || (listBox_Major.SelectedIndex < -1)) {
+               || (listBox_Major.SelectedIndex < -1)
+               || (listBox_Major.SelectedItems.Count != 1)) {
                 return true;
             } else {
                 return false;

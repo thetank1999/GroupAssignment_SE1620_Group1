@@ -26,33 +26,32 @@ namespace WinFormsApp
                         ICategoryDataProvider categoryDataProvider, 
                         IDataHelper datahelper) {
             this._userDataProvider = userDataProvider;
-            _roleDataProvider = roleDataProvider;
-            _majorDataProvider = majorDataProvider;
-            _favouriteDataProvider = favouriteDataProvider;
-            _documentDataProvider = documentDataProvider;
-            _categoryDataProvider = categoryDataProvider;
-            _datahelper = datahelper;
+            this._roleDataProvider = roleDataProvider;
+            this._majorDataProvider = majorDataProvider;
+            this._favouriteDataProvider = favouriteDataProvider;
+            this._documentDataProvider = documentDataProvider;
+            this._categoryDataProvider = categoryDataProvider;
+            this._datahelper = datahelper;
             InitializeComponent();
         }
         #endregion
 
         private void btn_Login_Click(object sender, EventArgs e) {
             var dbEntity = _userDataProvider.GetUserLogin(tb_Email.Text, tb_Password.Text);
-            if (dbEntity.UserRoleId == 1) // admin
-                {
-                MessageBox.Show(dbEntity.UserFullname.TrimEnd());
-            }else if (dbEntity.UserRoleId == 2) // normal member
-                {
-                MessageBox.Show(dbEntity.UserFullname.TrimEnd()+$"{dbEntity.UserRoleId}");
-            } else if (dbEntity.UserRoleId == 3) // lecturer
-                {
-
-            } else if (dbEntity.UserRoleId == 4) // head of department
-                {
-
-            } else if (dbEntity== null) {
+            if (dbEntity == null) {
                 MessageBox.Show("Invalid email or password.");
                 tb_Password.Clear();
+            }else {
+                var frmGeneral = new frmGeneral(_userDataProvider,
+                                                _roleDataProvider,
+                                                _majorDataProvider,
+                                                _favouriteDataProvider,
+                                                _documentDataProvider,
+                                                _categoryDataProvider,
+                                                _datahelper,
+                                                dbEntity);
+                this.Close();
+                frmGeneral.ShowDialog();
             }
         }
 

@@ -140,9 +140,9 @@
             // 
             this.listBox_Major.FormattingEnabled = true;
             this.listBox_Major.ItemHeight = 25;
-            this.listBox_Major.Location = new System.Drawing.Point(369, 189);
+            this.listBox_Major.Location = new System.Drawing.Point(369, 177);
             this.listBox_Major.Name = "listBox_Major";
-            this.listBox_Major.Size = new System.Drawing.Size(221, 29);
+            this.listBox_Major.Size = new System.Drawing.Size(221, 54);
             this.listBox_Major.TabIndex = 11;
             // 
             // label_Major

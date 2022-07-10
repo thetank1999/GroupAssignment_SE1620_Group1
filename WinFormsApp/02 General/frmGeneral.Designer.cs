@@ -43,6 +43,7 @@
             this.btn_PersonalInformation.TabIndex = 0;
             this.btn_PersonalInformation.Text = "Personal Information";
             this.btn_PersonalInformation.UseVisualStyleBackColor = true;
+            this.btn_PersonalInformation.Visible = false;
             this.btn_PersonalInformation.Click += new System.EventHandler(this.btn_PersonalInformation_Click);
             // 
             // label_WelcomeBack
@@ -60,9 +61,10 @@
             this.btn_MyFavourite.Location = new System.Drawing.Point(12, 206);
             this.btn_MyFavourite.Name = "btn_MyFavourite";
             this.btn_MyFavourite.Size = new System.Drawing.Size(183, 98);
-            this.btn_MyFavourite.TabIndex = 4;
+            this.btn_MyFavourite.TabIndex = 1;
             this.btn_MyFavourite.Text = "My Favourite";
             this.btn_MyFavourite.UseVisualStyleBackColor = true;
+            this.btn_MyFavourite.Visible = false;
             this.btn_MyFavourite.Click += new System.EventHandler(this.btn_MyFavourite_Click);
             // 
             // button_DocumentList
@@ -70,9 +72,10 @@
             this.button_DocumentList.Location = new System.Drawing.Point(12, 323);
             this.button_DocumentList.Name = "button_DocumentList";
             this.button_DocumentList.Size = new System.Drawing.Size(183, 98);
-            this.button_DocumentList.TabIndex = 5;
+            this.button_DocumentList.TabIndex = 2;
             this.button_DocumentList.Text = "Document List";
             this.button_DocumentList.UseVisualStyleBackColor = true;
+            this.button_DocumentList.Visible = false;
             this.button_DocumentList.Click += new System.EventHandler(this.button_DocumentList_Click);
             // 
             // btn_UploadDocument
@@ -80,9 +83,10 @@
             this.btn_UploadDocument.Location = new System.Drawing.Point(12, 445);
             this.btn_UploadDocument.Name = "btn_UploadDocument";
             this.btn_UploadDocument.Size = new System.Drawing.Size(183, 98);
-            this.btn_UploadDocument.TabIndex = 6;
+            this.btn_UploadDocument.TabIndex = 3;
             this.btn_UploadDocument.Text = "Upload Document";
             this.btn_UploadDocument.UseVisualStyleBackColor = true;
+            this.btn_UploadDocument.Visible = false;
             this.btn_UploadDocument.Click += new System.EventHandler(this.btn_UploadDocument_Click);
             // 
             // btn_ApproveDocument
@@ -90,9 +94,10 @@
             this.btn_ApproveDocument.Location = new System.Drawing.Point(12, 569);
             this.btn_ApproveDocument.Name = "btn_ApproveDocument";
             this.btn_ApproveDocument.Size = new System.Drawing.Size(183, 98);
-            this.btn_ApproveDocument.TabIndex = 7;
+            this.btn_ApproveDocument.TabIndex = 4;
             this.btn_ApproveDocument.Text = "Approve Document";
             this.btn_ApproveDocument.UseVisualStyleBackColor = true;
+            this.btn_ApproveDocument.Visible = false;
             this.btn_ApproveDocument.Click += new System.EventHandler(this.btn_ApproveDocument_Click);
             // 
             // btn_DocumentManagement
@@ -100,9 +105,10 @@
             this.btn_DocumentManagement.Location = new System.Drawing.Point(12, 685);
             this.btn_DocumentManagement.Name = "btn_DocumentManagement";
             this.btn_DocumentManagement.Size = new System.Drawing.Size(183, 98);
-            this.btn_DocumentManagement.TabIndex = 8;
+            this.btn_DocumentManagement.TabIndex = 5;
             this.btn_DocumentManagement.Text = "Document Management";
             this.btn_DocumentManagement.UseVisualStyleBackColor = true;
+            this.btn_DocumentManagement.Visible = false;
             this.btn_DocumentManagement.Click += new System.EventHandler(this.btn_DocumentManagement_Click);
             // 
             // btn_UserManagement
@@ -110,9 +116,10 @@
             this.btn_UserManagement.Location = new System.Drawing.Point(12, 805);
             this.btn_UserManagement.Name = "btn_UserManagement";
             this.btn_UserManagement.Size = new System.Drawing.Size(183, 98);
-            this.btn_UserManagement.TabIndex = 9;
+            this.btn_UserManagement.TabIndex = 6;
             this.btn_UserManagement.Text = "User Management";
             this.btn_UserManagement.UseVisualStyleBackColor = true;
+            this.btn_UserManagement.Visible = false;
             this.btn_UserManagement.Click += new System.EventHandler(this.btn_UserManagement_Click);
             // 
             // frmGeneral

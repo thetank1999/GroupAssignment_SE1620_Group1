@@ -3,7 +3,8 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace WinApp.SqlProvider { 
+namespace WinApp.SqlProvider
+{
     public partial class Major
     {
         public Major()

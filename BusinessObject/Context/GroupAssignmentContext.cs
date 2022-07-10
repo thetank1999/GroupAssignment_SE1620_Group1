@@ -7,9 +7,11 @@ namespace WinApp.SqlProvider
 {
     public partial class GroupAssignmentContext : DbContext
     {
-        public static IConfiguration _configuration { get; private set; }
-        public GroupAssignmentContext()
+        public IConfiguration _configuration { get; private set; }
+
+        public GroupAssignmentContext(IConfiguration configuration)
         {
+            this._configuration = configuration;
         }
 
         public GroupAssignmentContext(DbContextOptions<GroupAssignmentContext> options)
@@ -25,9 +27,9 @@ namespace WinApp.SqlProvider
         public virtual DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-            IConfiguration configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+            this._configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
             if (!optionsBuilder.IsConfigured) {
-                optionsBuilder.UseSqlServer(configuration.GetConnectionString("DbSqlConnection"));
+                optionsBuilder.UseSqlServer(this._configuration.GetConnectionString("DbSqlConnection"));
             }
         }
 
@@ -140,24 +142,24 @@ namespace WinApp.SqlProvider
 
                 entity.Property(e => e.UserEmail)
                     .IsRequired()
-                    .HasMaxLength(512)
-                    .IsUnicode(false);
+                    .HasMaxLength(512);
 
                 entity.Property(e => e.UserFullname)
                     .IsRequired()
-                    .HasColumnType("text");
+                    .HasMaxLength(512);
 
                 entity.Property(e => e.UserPassword)
                     .IsRequired()
-                    .HasColumnType("text");
+                    .HasMaxLength(512);
 
                 entity.Property(e => e.UserStatus)
                     .IsRequired()
                     .HasDefaultValueSql("((1))");
 
-                entity.HasOne(d => d.UserMajor)
+                entity.HasOne(d => d.UserMajorNavigation)
                     .WithMany(p => p.Users)
-                    .HasForeignKey(d => d.UserMajorId)
+                    .HasForeignKey(d => d.UserMajor)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_User_Major");
 
                 entity.HasOne(d => d.UserRole)

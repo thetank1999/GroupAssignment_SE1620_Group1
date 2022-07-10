@@ -20,9 +20,9 @@ namespace WinApp.SqlProvider
         public string UserFullname { get; set; }
         public string UserPassword { get; set; }
         public bool? UserStatus { get; set; }
-        public int? UserMajorId { get; set; }
+        public int UserMajor { get; set; }
 
-        public virtual Major UserMajor { get; set; }
+        public virtual Major UserMajorNavigation { get; set; }
         public virtual Role UserRole { get; set; }
         public virtual ICollection<Document> DocumentApprovers { get; set; }
         public virtual ICollection<Document> DocumentUploaders { get; set; }
