@@ -21,13 +21,46 @@ namespace WinApp.DataProviders {
 
         #region [Add - Update - Remove ]
         public void AddCategory(Category Category) {
-            throw new NotImplementedException();
+            try {
+                var dbEntity = _dbContext.Categories.FirstOrDefault(x => x.CategoryId == Category.CategoryId);
+                if (dbEntity == null) {
+                    _dbContext.Categories.Add(Category);
+                    _dbContext.SaveChanges();
+                } else {
+                    throw new Exception();
+                }
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
         }
         public void RemoveCategory(Category Category) {
-            throw new NotImplementedException();
+            try {
+                var dbEntity = _dbContext.Categories.FirstOrDefault(x => x.CategoryId == Category.CategoryId);
+                if (dbEntity != null) {
+                    _dbContext.Categories.Remove(Category);
+                    _dbContext.SaveChanges();
+                } else {
+                    throw new Exception();
+                }
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
         }
         public void UpdateCategory(Category Category) {
-            throw new NotImplementedException();
+            try {
+                var dbEntity = _dbContext.Categories.FirstOrDefault(x => x.CategoryId == Category.CategoryId);
+                if (dbEntity != null) {
+                    _dbContext.Categories.Update(Category);
+                    _dbContext.SaveChanges();
+                } else {
+                    throw new Exception();
+                }
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
         }
         #endregion
 
@@ -42,13 +75,27 @@ namespace WinApp.DataProviders {
 
         #region [ Get Single]
         public Category GetCategoryById(int id) {
-            throw new NotImplementedException();
+            Category category = null;
+            try {
+                category = _dbContext.Categories.FirstOrDefault(x => x.CategoryId == id);
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return category;
         }
         #endregion
 
         #region [ Get List ]
         public List<Category> GetAllCategorys() {
-            throw new NotImplementedException();
+            var result = new List<Category>();
+            try {
+                result = _dbContext.Categories.ToList();
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return result;
         }
 
         public List<Category> GetActiveCategorys() {

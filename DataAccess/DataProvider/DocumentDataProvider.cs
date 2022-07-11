@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WinApp.Core;
 using WinApp.SqlProvider;
 
@@ -22,20 +20,60 @@ namespace WinApp.DataProviders
 
         #region [Add - Update - Remove ]
         public void AddDocument(Document Document) {
-            throw new NotImplementedException();
+            try {
+                var dbEntity = _dbContext.Documents.FirstOrDefault(x => x.DocumentId == Document.DocumentId);
+                if (dbEntity == null) {
+                    _dbContext.Documents.Add(Document);
+                    _dbContext.SaveChanges();
+                } else {
+                    throw new Exception();
+                }
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
         }
 
         public void RemoveDocument(Document Document) {
-            throw new NotImplementedException();
+            try {
+                var dbEntity = _dbContext.Documents.FirstOrDefault(x => x.DocumentId == Document.DocumentId);
+                if (dbEntity != null) {
+                    _dbContext.Documents.Remove(Document);
+                    _dbContext.SaveChanges();
+                } else {
+                    throw new Exception();
+                }
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
         }
         public void UpdateDocument(Document Document) {
-            throw new NotImplementedException();
+            try {
+                var dbEntity = _dbContext.Documents.FirstOrDefault(x => x.DocumentId == Document.DocumentId);
+                if (dbEntity != null) {
+                    _dbContext.Documents.Update(Document);
+                    _dbContext.SaveChanges();
+                } else {
+                    throw new Exception();
+                }
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
         }
         #endregion
 
         #region [ Get Single]
         public Document GetDocumentById(int id) {
-            throw new NotImplementedException();
+            Document document = null;
+            try {
+                document = _dbContext.Documents.FirstOrDefault(x => x.DocumentId == id);
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return document;
         }
         #endregion
 
@@ -50,7 +88,14 @@ namespace WinApp.DataProviders
 
         #region [ Get List ]
         public List<Document> GetAllDocuments() {
-            throw new NotImplementedException();
+            var result = new List<Document>();
+            try {
+                result = _dbContext.Documents.ToList();
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return result;
         }
 
         public List<Document> GetActiveDocuments() {
@@ -62,27 +107,69 @@ namespace WinApp.DataProviders
         }
 
         public List<Document> GetDocumentsByUploaderId(int id) {
-            throw new NotImplementedException();
+            var result = new List<Document>();
+            try {
+                result = _dbContext.Documents.Where(x => x.UploaderId == id).ToList();
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return result;
         }
 
         public List<Document> GetDocumentsByApproverId(int id) {
-            throw new NotImplementedException();
+            var result = new List<Document>();
+            try {
+                result = _dbContext.Documents.Where(x => x.ApproverId == id).ToList();
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return result;
         }
 
         public List<Document> GetDocumentsByCategoryId(int id) {
-            throw new NotImplementedException();
+            var result = new List<Document>();
+            try {
+                result = _dbContext.Documents.Where(x => x.CategoryId == id).ToList();
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return result;
         }
 
         public List<Document> GetDocumentsByMajorId(int id) {
-            throw new NotImplementedException();
+            var result = new List<Document>();
+            try {
+                result = _dbContext.Documents.Where(x => x.MajorId == id).ToList();
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return result;
         }
 
         public List<Document> GetNotApprovedDocumentsByUploader(int id) {
-            throw new NotImplementedException();
+            var result = new List<Document>();
+            try {
+                result = _dbContext.Documents.Where(x => x.UploaderId == id && x.IsApproved == false).ToList();
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return result;
         }
 
         public List<Document> GetApprovedDocumentsByUploader(int id) {
-            throw new NotImplementedException();
+            var result = new List<Document>();
+            try {
+                result = _dbContext.Documents.Where(x => x.UploaderId == id && x.IsApproved == true).ToList();
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return result;
         }
         #endregion
     }

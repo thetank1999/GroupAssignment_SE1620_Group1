@@ -1,9 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WinApp.Core;
 using WinApp.SqlProvider;
 
@@ -38,7 +35,7 @@ namespace WinApp.DataProviders
         public void RemoveUser(User user) {
             try {
                 var dbEntity = _dbContext.Users.FirstOrDefault(x => x.UserId == user.UserId);
-                if (dbEntity == null) {
+                if (dbEntity != null) {
                     _dbContext.Users.Remove(user);
                     _dbContext.SaveChanges();
                 } else {
@@ -52,7 +49,7 @@ namespace WinApp.DataProviders
         public void UpdateUser(User user) {
             try {
                 var dbEntity = _dbContext.Users.FirstOrDefault(x => x.UserId == user.UserId);
-                if (dbEntity == null) {
+                if (dbEntity != null) {
                     _dbContext.Users.Update(user);
                     _dbContext.SaveChanges();
                 } else {

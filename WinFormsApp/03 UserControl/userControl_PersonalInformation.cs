@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WinApp._03_UserControl
 {
-    public partial class userControll_PersonalInformation : UserControl
+    public partial class userControl_PersonalInformation : UserControl
     {
-        public userControll_PersonalInformation() {
+        public userControl_PersonalInformation() {
             InitializeComponent();
         }
     }

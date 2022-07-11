@@ -22,29 +22,83 @@ namespace WinApp.DataProviders
 
         #region [Add - Update - Remove ]
         public void RemoveFavourite(Favourite Favourite) {
-            throw new NotImplementedException();
+            try {
+                var dbEntity = this.GetFavouriteById(Favourite.FavouriteId);
+                if (dbEntity != null) {
+                    _dbContext.Favourites.Remove(Favourite);
+                    _dbContext.SaveChanges();
+                } else {
+                    throw new Exception();
+                }
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
         }
         public void UpdateFavourite(Favourite Favourite) {
-            throw new NotImplementedException();
+            try {
+                var dbEntity = this.GetFavouriteById(Favourite.FavouriteId);
+                if (dbEntity != null) {
+                    _dbContext.Favourites.Update(Favourite);
+                    _dbContext.SaveChanges();
+                } else {
+                    throw new Exception();
+                }
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
         }
         public void AddFavourite(Favourite Favourite) {
-            throw new NotImplementedException();
+            try {
+                var dbEntity = _dbContext.Favourites.FirstOrDefault(x => x.FavouriteId == Favourite.FavouriteId);
+                if (dbEntity == null) {
+                    _dbContext.Favourites.Add(Favourite);
+                    _dbContext.SaveChanges();
+                } else {
+                    throw new Exception();
+                }
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
         }
         #endregion
 
         #region [ Get Single]
         public Favourite GetFavouriteById(int id) {
-            throw new NotImplementedException();
+            Favourite favourite = null;
+            try {
+                favourite = _dbContext.Favourites.FirstOrDefault(x => x.FavouriteId == id);
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return favourite;
         }
         #endregion
 
         #region [ Get List ]
         public List<Favourite> GetFavouritesByDocumentId(int id) {
-            throw new NotImplementedException();
+            var result = new List<Favourite>();
+            try {
+                result = _dbContext.Favourites.Where(x => x.DocumentId == id).ToList();
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return result;
         }
 
         public List<Favourite> GetFavouritesByUserId(int id) {
-            throw new NotImplementedException();
+            var result = new List<Favourite>();
+            try {
+                result = _dbContext.Favourites.Where(x => x.UserId == id ).ToList();
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return result;
         }
         #endregion
 

@@ -33,6 +33,7 @@
             this.btn_ApproveDocument = new System.Windows.Forms.Button();
             this.btn_DocumentManagement = new System.Windows.Forms.Button();
             this.btn_UserManagement = new System.Windows.Forms.Button();
+            this.panel_General = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btn_PersonalInformation
@@ -119,11 +120,19 @@
             this.btn_UserManagement.Visible = false;
             this.btn_UserManagement.Click += new System.EventHandler(this.btn_UserManagement_Click);
             // 
+            // panel_General
+            // 
+            this.panel_General.Location = new System.Drawing.Point(247, 78);
+            this.panel_General.Name = "panel_General";
+            this.panel_General.Size = new System.Drawing.Size(1246, 1090);
+            this.panel_General.TabIndex = 7;
+            // 
             // frmGeneral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1505, 1180);
+            this.Controls.Add(this.panel_General);
             this.Controls.Add(this.btn_UserManagement);
             this.Controls.Add(this.btn_DocumentManagement);
             this.Controls.Add(this.btn_ApproveDocument);
@@ -149,5 +158,6 @@
         private System.Windows.Forms.Button btn_ApproveDocument;
         private System.Windows.Forms.Button btn_DocumentManagement;
         private System.Windows.Forms.Button btn_UserManagement;
+        private System.Windows.Forms.Panel panel_General;
     }
 }
