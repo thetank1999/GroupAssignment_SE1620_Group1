@@ -25,13 +25,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.dg_UploadList = new System.Windows.Forms.DataGridView();
-            this.DocuementId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DocumentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Major = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsApproved = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApprovedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv_UploadList = new System.Windows.Forms.DataGridView();
             this.label_PersonalUpload = new System.Windows.Forms.Label();
             this.btn_RefreshData = new System.Windows.Forms.Button();
             this.btn_Delete = new System.Windows.Forms.Button();
@@ -44,81 +38,38 @@
             this.cb_IsApproved = new System.Windows.Forms.ComboBox();
             this.btn_UploadDocument = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_UploadList)).BeginInit();
+            this.DocumentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DocumentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Major = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsApproved = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApprovedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_UploadList)).BeginInit();
             this.SuspendLayout();
             // 
-            // dg_UploadList
+            // dgv_UploadList
             // 
-            this.dg_UploadList.AllowUserToAddRows = false;
-            this.dg_UploadList.AllowUserToDeleteRows = false;
-            this.dg_UploadList.AllowUserToOrderColumns = true;
-            this.dg_UploadList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_UploadList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DocuementId,
+            this.dgv_UploadList.AllowUserToAddRows = false;
+            this.dgv_UploadList.AllowUserToDeleteRows = false;
+            this.dgv_UploadList.AllowUserToOrderColumns = true;
+            this.dgv_UploadList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_UploadList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DocumentId,
             this.DocumentName,
             this.Major,
             this.Category,
             this.IsApproved,
             this.ApprovedBy});
-            this.dg_UploadList.Location = new System.Drawing.Point(53, 195);
-            this.dg_UploadList.MultiSelect = false;
-            this.dg_UploadList.Name = "dg_UploadList";
-            this.dg_UploadList.ReadOnly = true;
-            this.dg_UploadList.RowHeadersWidth = 62;
-            this.dg_UploadList.RowTemplate.Height = 33;
-            this.dg_UploadList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dg_UploadList.Size = new System.Drawing.Size(1115, 578);
-            this.dg_UploadList.TabIndex = 8;
-            this.dg_UploadList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_UploadList_CellContentClick);
-            // 
-            // DocuementId
-            // 
-            this.DocuementId.HeaderText = "Docuement Id";
-            this.DocuementId.MinimumWidth = 8;
-            this.DocuementId.Name = "DocuementId";
-            this.DocuementId.ReadOnly = true;
-            this.DocuementId.Visible = false;
-            this.DocuementId.Width = 150;
-            // 
-            // DocumentName
-            // 
-            this.DocumentName.HeaderText = "Document Name";
-            this.DocumentName.MinimumWidth = 8;
-            this.DocumentName.Name = "DocumentName";
-            this.DocumentName.ReadOnly = true;
-            this.DocumentName.Width = 200;
-            // 
-            // Major
-            // 
-            this.Major.HeaderText = "Major";
-            this.Major.MinimumWidth = 8;
-            this.Major.Name = "Major";
-            this.Major.ReadOnly = true;
-            this.Major.Width = 200;
-            // 
-            // Category
-            // 
-            this.Category.HeaderText = "Category";
-            this.Category.MinimumWidth = 8;
-            this.Category.Name = "Category";
-            this.Category.ReadOnly = true;
-            this.Category.Width = 200;
-            // 
-            // IsApproved
-            // 
-            this.IsApproved.HeaderText = "IsApproved";
-            this.IsApproved.MinimumWidth = 8;
-            this.IsApproved.Name = "IsApproved";
-            this.IsApproved.ReadOnly = true;
-            this.IsApproved.Width = 200;
-            // 
-            // ApprovedBy
-            // 
-            this.ApprovedBy.HeaderText = "ApprovedBy";
-            this.ApprovedBy.MinimumWidth = 8;
-            this.ApprovedBy.Name = "ApprovedBy";
-            this.ApprovedBy.ReadOnly = true;
-            this.ApprovedBy.Width = 250;
+            this.dgv_UploadList.Location = new System.Drawing.Point(53, 195);
+            this.dgv_UploadList.MultiSelect = false;
+            this.dgv_UploadList.Name = "dgv_UploadList";
+            this.dgv_UploadList.ReadOnly = true;
+            this.dgv_UploadList.RowHeadersWidth = 62;
+            this.dgv_UploadList.RowTemplate.Height = 33;
+            this.dgv_UploadList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_UploadList.Size = new System.Drawing.Size(1115, 578);
+            this.dgv_UploadList.TabIndex = 8;
+            this.dgv_UploadList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_UploadList_CellContentClick);
             // 
             // label_PersonalUpload
             // 
@@ -232,6 +183,55 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "Approval Status:";
             // 
+            // DocumentId
+            // 
+            this.DocumentId.HeaderText = "Document Id";
+            this.DocumentId.MinimumWidth = 8;
+            this.DocumentId.Name = "DocumentId";
+            this.DocumentId.ReadOnly = true;
+            this.DocumentId.Visible = false;
+            this.DocumentId.Width = 150;
+            // 
+            // DocumentName
+            // 
+            this.DocumentName.HeaderText = "Document Name";
+            this.DocumentName.MinimumWidth = 8;
+            this.DocumentName.Name = "DocumentName";
+            this.DocumentName.ReadOnly = true;
+            this.DocumentName.Width = 200;
+            // 
+            // Major
+            // 
+            this.Major.HeaderText = "Major";
+            this.Major.MinimumWidth = 8;
+            this.Major.Name = "Major";
+            this.Major.ReadOnly = true;
+            this.Major.Width = 200;
+            // 
+            // Category
+            // 
+            this.Category.HeaderText = "Category";
+            this.Category.MinimumWidth = 8;
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
+            this.Category.Width = 200;
+            // 
+            // IsApproved
+            // 
+            this.IsApproved.HeaderText = "IsApproved";
+            this.IsApproved.MinimumWidth = 8;
+            this.IsApproved.Name = "IsApproved";
+            this.IsApproved.ReadOnly = true;
+            this.IsApproved.Width = 200;
+            // 
+            // ApprovedBy
+            // 
+            this.ApprovedBy.HeaderText = "ApprovedBy";
+            this.ApprovedBy.MinimumWidth = 8;
+            this.ApprovedBy.Name = "ApprovedBy";
+            this.ApprovedBy.ReadOnly = true;
+            this.ApprovedBy.Width = 250;
+            // 
             // userControl_UploadDocument
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -248,23 +248,17 @@
             this.Controls.Add(this.btn_Delete);
             this.Controls.Add(this.btn_RefreshData);
             this.Controls.Add(this.label_PersonalUpload);
-            this.Controls.Add(this.dg_UploadList);
+            this.Controls.Add(this.dgv_UploadList);
             this.Name = "userControl_UploadDocument";
             this.Size = new System.Drawing.Size(1393, 807);
-            ((System.ComponentModel.ISupportInitialize)(this.dg_UploadList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_UploadList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dg_UploadList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DocuementId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DocumentName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Major;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IsApproved;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ApprovedBy;
+        private System.Windows.Forms.DataGridView dgv_UploadList;
         private System.Windows.Forms.Label label_PersonalUpload;
         private System.Windows.Forms.Button btn_RefreshData;
         private System.Windows.Forms.Button btn_Delete;
@@ -277,5 +271,11 @@
         private System.Windows.Forms.ComboBox cb_IsApproved;
         private System.Windows.Forms.Button btn_UploadDocument;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocumentId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocumentName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Major;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsApproved;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ApprovedBy;
     }
 }

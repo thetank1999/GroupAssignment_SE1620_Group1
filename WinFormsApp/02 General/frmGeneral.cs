@@ -69,7 +69,7 @@ namespace WinApp
 
         #region [ Lecturer ]
         private void btn_UploadDocument_Click(object sender, EventArgs e) {
-
+            this._ucUploadDocument.BringToFront();
         }
         #endregion
 

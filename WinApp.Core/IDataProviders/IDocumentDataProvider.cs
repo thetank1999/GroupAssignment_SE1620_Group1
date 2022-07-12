@@ -52,6 +52,7 @@ namespace WinApp.Core
         public List<Document> GetAllApprovedDocumentByMajor(int majorId);
 
         public List<Document> GetAllApprovedDocumentByCategory(int categoryId);
+
         #endregion
     }
 }
