@@ -17,7 +17,6 @@ namespace WinApp
         private readonly IFavouriteDataProvider _favouriteDataProvider;
         private readonly IDocumentDataProvider _documentDataProvider;
         private readonly ICategoryDataProvider _categoryDataProvider;
-        private readonly IDataHelper _datahelper;
         private readonly User _user;
         private List<Document> _documentList;
         public userControl_DocumentList(IUserDataProviders userDataProvider,
@@ -32,7 +31,6 @@ namespace WinApp
             this._favouriteDataProvider = favouriteDataProvider;
             this._documentDataProvider = documentDataProvider;
             this._categoryDataProvider = categoryDataProvider;
-            this._datahelper = datahelper;
             this._user = user;
             this.InitializeComponent();
             this._documentList = this.InitDocumentList();

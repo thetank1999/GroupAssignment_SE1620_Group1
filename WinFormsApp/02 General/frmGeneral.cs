@@ -28,6 +28,8 @@ namespace WinApp
         private userControl_DocumentList _ucDocumentList;
         private userControl_UploadDocument _ucUploadDocument;
         private userControl_ApproveDocument _ucApproveDocument;
+        private userControl_DocumentManagement _ucDocumentManagement;
+        private userControl_UserManagement _ucUserManagement;
         #endregion
 
         #region [ Ctor ]
@@ -82,11 +84,11 @@ namespace WinApp
 
         #region [ Administrator ]
         private void btn_DocumentManagement_Click(object sender, EventArgs e) {
-
+            this._ucDocumentManagement.BringToFront();
         }
 
         private void btn_UserManagement_Click(object sender, EventArgs e) {
-
+            this._ucUserManagement.BringToFront();
         }
         #endregion
 
@@ -166,9 +168,15 @@ namespace WinApp
                                                                             _user);
                 panel_General.Controls.Add(this._ucApproveDocument);
                 this._ucApproveDocument.Dock = DockStyle.Fill;
-            } else if (user.UserRoleId == 1) { 
+            } else if (user.UserRoleId == 1) {
                 // document management
-
+                this._ucDocumentManagement = new userControl_DocumentManagement(_userDataProvider,
+                                                                                _majorDataProvider,
+                                                                                _documentDataProvider,
+                                                                                _categoryDataProvider,
+                                                                                _user);
+                panel_General.Controls.Add(this._ucDocumentManagement);
+                this._ucDocumentManagement.Dock = DockStyle.Fill;
                 // user management
             }
         }
