@@ -171,6 +171,40 @@ namespace WinApp.DataProviders
             }
             return result;
         }
+
+        public List<Document> GetAllApprovedDocument() {
+            var result = new List<Document>();
+            try {
+                result = _dbContext.Documents.Where(x =>  x.IsApproved == true).ToList();
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return result;
+        }
+
+        public List<Document> GetAllApprovedDocumentByMajor(int majorId) {
+            var result = new List<Document>();
+            try {
+                result = _dbContext.Documents.Where(x => x.IsApproved == true &&x.MajorId == majorId).ToList();
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return result;
+        }
+
+        public List<Document> GetAllApprovedDocumentByCategory(int categoryId) {
+            var result = new List<Document>();
+            try {
+                result = _dbContext.Documents.Where(x => x.IsApproved == true && x.CategoryId == categoryId).ToList();
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return result;
+        }
+    }
         #endregion
     }
-}
+

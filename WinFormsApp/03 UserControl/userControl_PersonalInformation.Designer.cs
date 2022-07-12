@@ -1,4 +1,4 @@
-﻿namespace WinApp._03_UserControl
+﻿namespace WinApp
 {
     partial class userControl_PersonalInformation
     {
@@ -25,56 +25,108 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label_EmailAddress = new System.Windows.Forms.Label();
+            this.label_Fullname = new System.Windows.Forms.Label();
+            this.label_Major = new System.Windows.Forms.Label();
+            this.label_Role = new System.Windows.Forms.Label();
+            this.tb_EmailAddress = new System.Windows.Forms.TextBox();
+            this.tb_Fullname = new System.Windows.Forms.TextBox();
+            this.btn_ChangePassword = new System.Windows.Forms.Button();
+            this.tb_Major = new System.Windows.Forms.TextBox();
+            this.tb_Role = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // label1
+            // label_EmailAddress
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(241, 114);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.label_EmailAddress.AutoSize = true;
+            this.label_EmailAddress.Location = new System.Drawing.Point(241, 124);
+            this.label_EmailAddress.Name = "label_EmailAddress";
+            this.label_EmailAddress.Size = new System.Drawing.Size(128, 25);
+            this.label_EmailAddress.TabIndex = 0;
+            this.label_EmailAddress.Text = "Email Address:";
             // 
-            // label2
+            // label_Fullname
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(241, 188);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 25);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.label_Fullname.AutoSize = true;
+            this.label_Fullname.Location = new System.Drawing.Point(241, 188);
+            this.label_Fullname.Name = "label_Fullname";
+            this.label_Fullname.Size = new System.Drawing.Size(87, 25);
+            this.label_Fullname.TabIndex = 1;
+            this.label_Fullname.Text = "Fullname:";
             // 
-            // label3
+            // label_Major
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(241, 245);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 25);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "label3";
+            this.label_Major.AutoSize = true;
+            this.label_Major.Location = new System.Drawing.Point(241, 245);
+            this.label_Major.Name = "label_Major";
+            this.label_Major.Size = new System.Drawing.Size(62, 25);
+            this.label_Major.TabIndex = 2;
+            this.label_Major.Text = "Major:";
             // 
-            // label4
+            // label_Role
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(241, 308);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 25);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "label4";
+            this.label_Role.AutoSize = true;
+            this.label_Role.Location = new System.Drawing.Point(241, 304);
+            this.label_Role.Name = "label_Role";
+            this.label_Role.Size = new System.Drawing.Size(50, 25);
+            this.label_Role.TabIndex = 3;
+            this.label_Role.Text = "Role:";
+            // 
+            // tb_EmailAddress
+            // 
+            this.tb_EmailAddress.Enabled = false;
+            this.tb_EmailAddress.Location = new System.Drawing.Point(420, 118);
+            this.tb_EmailAddress.Name = "tb_EmailAddress";
+            this.tb_EmailAddress.Size = new System.Drawing.Size(233, 31);
+            this.tb_EmailAddress.TabIndex = 4;
+            // 
+            // tb_Fullname
+            // 
+            this.tb_Fullname.Enabled = false;
+            this.tb_Fullname.Location = new System.Drawing.Point(420, 182);
+            this.tb_Fullname.Name = "tb_Fullname";
+            this.tb_Fullname.Size = new System.Drawing.Size(233, 31);
+            this.tb_Fullname.TabIndex = 5;
+            // 
+            // btn_ChangePassword
+            // 
+            this.btn_ChangePassword.Location = new System.Drawing.Point(515, 406);
+            this.btn_ChangePassword.Name = "btn_ChangePassword";
+            this.btn_ChangePassword.Size = new System.Drawing.Size(138, 65);
+            this.btn_ChangePassword.TabIndex = 9;
+            this.btn_ChangePassword.Text = "Change Password";
+            this.btn_ChangePassword.UseVisualStyleBackColor = true;
+            this.btn_ChangePassword.Click += new System.EventHandler(this.btn_ChangePassword_Click);
+            // 
+            // tb_Major
+            // 
+            this.tb_Major.Enabled = false;
+            this.tb_Major.Location = new System.Drawing.Point(420, 239);
+            this.tb_Major.Name = "tb_Major";
+            this.tb_Major.Size = new System.Drawing.Size(233, 31);
+            this.tb_Major.TabIndex = 10;
+            // 
+            // tb_Role
+            // 
+            this.tb_Role.Enabled = false;
+            this.tb_Role.Location = new System.Drawing.Point(420, 298);
+            this.tb_Role.Name = "tb_Role";
+            this.tb_Role.Size = new System.Drawing.Size(233, 31);
+            this.tb_Role.TabIndex = 11;
             // 
             // userControl_PersonalInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tb_Role);
+            this.Controls.Add(this.tb_Major);
+            this.Controls.Add(this.btn_ChangePassword);
+            this.Controls.Add(this.tb_Fullname);
+            this.Controls.Add(this.tb_EmailAddress);
+            this.Controls.Add(this.label_Role);
+            this.Controls.Add(this.label_Major);
+            this.Controls.Add(this.label_Fullname);
+            this.Controls.Add(this.label_EmailAddress);
             this.Name = "userControl_PersonalInformation";
             this.Size = new System.Drawing.Size(1191, 753);
             this.ResumeLayout(false);
@@ -84,9 +136,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label_EmailAddress;
+        private System.Windows.Forms.Label label_Fullname;
+        private System.Windows.Forms.Label label_Major;
+        private System.Windows.Forms.Label label_Role;
+        private System.Windows.Forms.TextBox tb_EmailAddress;
+        private System.Windows.Forms.TextBox tb_Fullname;
+        private System.Windows.Forms.Button btn_ChangePassword;
+        private System.Windows.Forms.TextBox tb_Major;
+        private System.Windows.Forms.TextBox tb_Role;
     }
 }

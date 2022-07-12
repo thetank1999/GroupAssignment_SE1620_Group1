@@ -23,6 +23,9 @@ namespace WinApp
         private readonly ICategoryDataProvider _categoryDataProvider;
         private readonly IDataHelper _datahelper;
         private readonly User _user;
+        private userControl_PersonalInformation _ucPersonalInfo;
+        private userControl_MyFavourite _ucMyFavourite;
+        private userControl_DocumentList _ucDocumentList;
         #endregion
 
         #region [ Ctor ]
@@ -42,22 +45,24 @@ namespace WinApp
             this._categoryDataProvider = categoryDataProvider;
             this._datahelper = datahelper;
             this._user = user;
+
             InitializeComponent();
-            this.SegregationOfDuty(_user);
+            this.SegregationOfDuty(this._user);
+            this.InitializeUserControl(this._user);
         }
         #endregion
 
         #region [ Normal User ]
         private void btn_PersonalInformation_Click(object sender, EventArgs e) {
-
+            this._ucPersonalInfo.BringToFront();
         }
 
         private void btn_MyFavourite_Click(object sender, EventArgs e) {
-
+            this._ucMyFavourite.BringToFront();
         }
 
         private void button_DocumentList_Click(object sender, EventArgs e) {
-
+            this._ucDocumentList.BringToFront();
         }
         #endregion
 
@@ -103,7 +108,27 @@ namespace WinApp
                         btn_ApproveDocument.Visible = true;
                         break;
                     }
+                    default: {
+                        break;
+                    }
             }
+        }
+
+        private void InitializeUserControl(User user) {
+            // personal infor
+            this._ucPersonalInfo = new userControl_PersonalInformation(_userDataProvider, _roleDataProvider, _majorDataProvider, _user);
+            panel_General.Controls.Add(this._ucPersonalInfo);
+            this._ucPersonalInfo.Dock = DockStyle.Fill;
+
+            // my favourite
+            this._ucMyFavourite = new userControl_MyFavourite(_userDataProvider, _majorDataProvider, _favouriteDataProvider, _documentDataProvider, _categoryDataProvider, _datahelper, _user);
+            panel_General.Controls.Add(this._ucMyFavourite);
+            this._ucMyFavourite.Dock = DockStyle.Fill;  
+            
+            // document list
+            this._ucDocumentList = new userControl_DocumentList(_userDataProvider, _majorDataProvider, _favouriteDataProvider, _documentDataProvider, _categoryDataProvider, _datahelper, _user);
+            panel_General.Controls.Add(this._ucDocumentList);
+            this._ucDocumentList.Dock = DockStyle.Fill;
         }
         #endregion
     }

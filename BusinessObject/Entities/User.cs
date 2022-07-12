@@ -27,5 +27,9 @@ namespace WinApp.SqlProvider
         public virtual ICollection<Document> DocumentApprovers { get; set; }
         public virtual ICollection<Document> DocumentUploaders { get; set; }
         public virtual ICollection<Favourite> Favourites { get; set; }
+
+        public override string ToString() {
+            return this.UserEmail.ToString();
+        }
     }
 }

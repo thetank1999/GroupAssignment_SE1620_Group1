@@ -76,6 +76,16 @@ namespace WinApp.DataProviders
             }
             return favourite;
         }
+        public Favourite GetFavouriteByUserIdAndDocumentId(int userId, int documentId) {
+            Favourite favourite = null;
+            try {
+                favourite = _dbContext.Favourites.FirstOrDefault(x => x.UserId == userId && x.DocumentId == documentId);
+            } catch (Exception ex) {
+
+                throw new Exception(ex.ToString());
+            }
+            return favourite;
+        }
         #endregion
 
         #region [ Get List ]

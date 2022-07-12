@@ -28,5 +28,9 @@ namespace WinApp.SqlProvider
         public virtual Major Major { get; set; }
         public virtual User Uploader { get; set; }
         public virtual ICollection<Favourite> Favourites { get; set; }
+
+        public override string ToString() {
+            return this.DocumentUrl.ToString();
+        }
     }
 }

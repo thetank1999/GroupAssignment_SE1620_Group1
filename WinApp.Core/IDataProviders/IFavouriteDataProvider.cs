@@ -18,6 +18,7 @@ namespace WinApp.Core
 
         #region [ Get Single ]
         public Favourite GetFavouriteById(int id);
+        public Favourite GetFavouriteByUserIdAndDocumentId(int userId, int documentId);
         #endregion
 
         #region [ Get List ]

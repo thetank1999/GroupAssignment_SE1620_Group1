@@ -46,6 +46,12 @@ namespace WinApp.Core
         public List<Document> GetNotApprovedDocumentsByUploader(int id);
 
         public List<Document> GetApprovedDocumentsByUploader(int id);
+
+        public List<Document> GetAllApprovedDocument();
+
+        public List<Document> GetAllApprovedDocumentByMajor(int majorId);
+
+        public List<Document> GetAllApprovedDocumentByCategory(int categoryId);
         #endregion
     }
 }
