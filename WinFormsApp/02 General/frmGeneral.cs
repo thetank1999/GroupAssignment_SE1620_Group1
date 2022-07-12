@@ -26,6 +26,7 @@ namespace WinApp
         private userControl_PersonalInformation _ucPersonalInfo;
         private userControl_MyFavourite _ucMyFavourite;
         private userControl_DocumentList _ucDocumentList;
+        private userControl_UploadDocument _ucUploadDocument;
         #endregion
 
         #region [ Ctor ]
@@ -116,19 +117,45 @@ namespace WinApp
 
         private void InitializeUserControl(User user) {
             // personal infor
-            this._ucPersonalInfo = new userControl_PersonalInformation(_userDataProvider, _roleDataProvider, _majorDataProvider, _user);
+            this._ucPersonalInfo = new userControl_PersonalInformation(_userDataProvider, 
+                                                                        _roleDataProvider, 
+                                                                        _majorDataProvider, 
+                                                                        _user);
             panel_General.Controls.Add(this._ucPersonalInfo);
             this._ucPersonalInfo.Dock = DockStyle.Fill;
 
             // my favourite
-            this._ucMyFavourite = new userControl_MyFavourite(_userDataProvider, _majorDataProvider, _favouriteDataProvider, _documentDataProvider, _categoryDataProvider, _datahelper, _user);
+            this._ucMyFavourite = new userControl_MyFavourite(  _userDataProvider, 
+                                                                _majorDataProvider, 
+                                                                _favouriteDataProvider, 
+                                                                _documentDataProvider, 
+                                                                _categoryDataProvider, 
+                                                                _datahelper, 
+                                                                _user);
             panel_General.Controls.Add(this._ucMyFavourite);
             this._ucMyFavourite.Dock = DockStyle.Fill;  
             
             // document list
-            this._ucDocumentList = new userControl_DocumentList(_userDataProvider, _majorDataProvider, _favouriteDataProvider, _documentDataProvider, _categoryDataProvider, _datahelper, _user);
+            this._ucDocumentList = new userControl_DocumentList(_userDataProvider, 
+                                                                _majorDataProvider, 
+                                                                _favouriteDataProvider, 
+                                                                _documentDataProvider, 
+                                                                _categoryDataProvider, 
+                                                                _datahelper, 
+                                                                _user);
             panel_General.Controls.Add(this._ucDocumentList);
             this._ucDocumentList.Dock = DockStyle.Fill;
+
+            if (user.UserRoleId == 3) {
+                this._ucUploadDocument = new userControl_UploadDocument(_userDataProvider,
+                                                                           _majorDataProvider,
+                                                                           _documentDataProvider,
+                                                                           _categoryDataProvider,
+                                                                           _datahelper,
+                                                                           _user);
+                panel_General.Controls.Add(this._ucUploadDocument);
+                this._ucUploadDocument.Dock = DockStyle.Fill;
+            }
         }
         #endregion
     }

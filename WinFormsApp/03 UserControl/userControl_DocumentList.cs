@@ -36,9 +36,11 @@ namespace WinApp
             this._categoryDataProvider = categoryDataProvider;
             this._datahelper = datahelper;
             this._user = user;
+            this.InitializeComponent();
             this._documentList = this.InitDocumentList();
             this.LoadDataIntoDgv(this._documentList);
-            InitializeComponent();
+            this.LoadDataIntoComboBoxes();
+            
         }
         #region [ Dgv Events ]
         private void dgv_DocumentList_CellContentClick(object sender, DataGridViewCellEventArgs e) {
@@ -98,16 +100,20 @@ namespace WinApp
 
         #region [Init]
         private List<Document> InitDocumentList() {
-            var result = _documentDataProvider.GetAllApprovedDocument();
+            var result = this._documentDataProvider.GetAllApprovedDocument();
             return result;
         }
 
         private void LoadDataIntoDgv(List<Document> documentList) {
             foreach (var document in documentList) {
-                var dbMajor = _majorDataProvider.GetMajorById(document.MajorId);
-                var dbCategory = _categoryDataProvider.GetCategoryById(document.CategoryId);
-                var dbUser = _userDataProvider.GetUser(document.UploaderId);
-                dgv_DocumentList.Rows.Add(document.DocumentId, document.DocumentUrl, dbMajor, dbCategory, dbUser);
+                var dbMajor = this._majorDataProvider.GetMajorById(document.MajorId);
+                var dbCategory = this._categoryDataProvider.GetCategoryById(document.CategoryId);
+                var dbUser = this._userDataProvider.GetUser(document.UploaderId);
+                dgv_DocumentList.Rows.Add(  document.DocumentId, 
+                                            document.DocumentUrl, // document name
+                                            dbMajor, 
+                                            dbCategory, 
+                                            dbUser);
             }
         }
 
@@ -115,6 +121,26 @@ namespace WinApp
             var result = new List<Document>();
             result = _documentList.Where(x => x.DocumentUrl.Contains(searchString)).ToList();
             return result;
+        }
+
+        private void LoadDataIntoComboBoxes() {
+            this.LoadMajor();
+            this.LoadCategory();
+        }
+        private void LoadMajor() {
+             cb_MajorSearch.Items.Clear();
+            var majorList = _majorDataProvider.GetAllMajors();
+            foreach (var major in majorList) {
+                cb_MajorSearch.Items.Add(major);
+            }
+        }
+
+        private void LoadCategory() {
+             cb_CategorySearch.Items.Clear();
+            var categoryList = _categoryDataProvider.GetAllCategorys();
+            foreach (var category in categoryList) {
+                cb_CategorySearch.Items.Add(category);
+            }
         }
         #endregion
     }
