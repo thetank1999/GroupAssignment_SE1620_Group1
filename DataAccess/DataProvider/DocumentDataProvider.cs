@@ -204,6 +204,15 @@ namespace WinApp.DataProviders
             }
             return result;
         }
+        public List<Document> GetAllNotApprovedDocument() {
+            var result = new List<Document>();
+            try {
+                result = _dbContext.Documents.Where(x => x.IsApproved == false).ToList();
+            }catch (Exception ex) {
+                throw new Exception(ex.ToString());
+            }
+            return result;
+        }
     }
         #endregion
     }

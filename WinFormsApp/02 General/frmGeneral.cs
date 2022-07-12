@@ -27,6 +27,7 @@ namespace WinApp
         private userControl_MyFavourite _ucMyFavourite;
         private userControl_DocumentList _ucDocumentList;
         private userControl_UploadDocument _ucUploadDocument;
+        private userControl_ApproveDocument _ucApproveDocument;
         #endregion
 
         #region [ Ctor ]
@@ -75,7 +76,7 @@ namespace WinApp
 
         #region [ Head of Lecturer ]
         private void btn_ApproveDocument_Click(object sender, EventArgs e) {
-
+            this._ucApproveDocument.BringToFront();
         }
         #endregion
 
@@ -147,7 +148,8 @@ namespace WinApp
             this._ucDocumentList.Dock = DockStyle.Fill;
 
             if (user.UserRoleId == 3) {
-                this._ucUploadDocument = new userControl_UploadDocument(_userDataProvider,
+                // upload document
+                this._ucUploadDocument = new userControl_UploadDocument(   _userDataProvider,
                                                                            _majorDataProvider,
                                                                            _documentDataProvider,
                                                                            _categoryDataProvider,
@@ -155,6 +157,19 @@ namespace WinApp
                                                                            _user);
                 panel_General.Controls.Add(this._ucUploadDocument);
                 this._ucUploadDocument.Dock = DockStyle.Fill;
+            } else if (user.UserRoleId == 4) {
+                // approve document
+                this._ucApproveDocument = new userControl_ApproveDocument(  _userDataProvider,
+                                                                            _majorDataProvider,
+                                                                            _documentDataProvider,
+                                                                            _categoryDataProvider,
+                                                                            _user);
+                panel_General.Controls.Add(this._ucApproveDocument);
+                this._ucApproveDocument.Dock = DockStyle.Fill;
+            } else if (user.UserRoleId == 1) { 
+                // document management
+
+                // user management
             }
         }
         #endregion

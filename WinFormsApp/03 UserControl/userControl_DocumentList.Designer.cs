@@ -36,7 +36,6 @@
             this.cb_CategorySearch = new System.Windows.Forms.ComboBox();
             this.btn_RefreshData = new System.Windows.Forms.Button();
             this.btn_Preview = new System.Windows.Forms.Button();
-            this.btn_DownloadDocument = new System.Windows.Forms.Button();
             this.btn_AddToFavourite = new System.Windows.Forms.Button();
             this.label_SearchByName = new System.Windows.Forms.Label();
             this.label_Major = new System.Windows.Forms.Label();
@@ -149,27 +148,16 @@
             this.btn_Preview.Enabled = false;
             this.btn_Preview.Location = new System.Drawing.Point(1180, 177);
             this.btn_Preview.Name = "btn_Preview";
-            this.btn_Preview.Size = new System.Drawing.Size(112, 34);
+            this.btn_Preview.Size = new System.Drawing.Size(112, 67);
             this.btn_Preview.TabIndex = 6;
-            this.btn_Preview.Text = "Preview";
+            this.btn_Preview.Text = "Preview Document";
             this.btn_Preview.UseVisualStyleBackColor = true;
             this.btn_Preview.Click += new System.EventHandler(this.btn_Preview_Click);
-            // 
-            // btn_DownloadDocument
-            // 
-            this.btn_DownloadDocument.Enabled = false;
-            this.btn_DownloadDocument.Location = new System.Drawing.Point(1180, 281);
-            this.btn_DownloadDocument.Name = "btn_DownloadDocument";
-            this.btn_DownloadDocument.Size = new System.Drawing.Size(112, 64);
-            this.btn_DownloadDocument.TabIndex = 7;
-            this.btn_DownloadDocument.Text = "Download Document";
-            this.btn_DownloadDocument.UseVisualStyleBackColor = true;
-            this.btn_DownloadDocument.Click += new System.EventHandler(this.btn_DownloadDocument_Click);
             // 
             // btn_AddToFavourite
             // 
             this.btn_AddToFavourite.Enabled = false;
-            this.btn_AddToFavourite.Location = new System.Drawing.Point(1180, 382);
+            this.btn_AddToFavourite.Location = new System.Drawing.Point(1180, 294);
             this.btn_AddToFavourite.Name = "btn_AddToFavourite";
             this.btn_AddToFavourite.Size = new System.Drawing.Size(112, 67);
             this.btn_AddToFavourite.TabIndex = 8;
@@ -212,7 +200,6 @@
             this.Controls.Add(this.label_Major);
             this.Controls.Add(this.label_SearchByName);
             this.Controls.Add(this.btn_AddToFavourite);
-            this.Controls.Add(this.btn_DownloadDocument);
             this.Controls.Add(this.btn_Preview);
             this.Controls.Add(this.btn_RefreshData);
             this.Controls.Add(this.cb_CategorySearch);
@@ -240,7 +227,6 @@
         private System.Windows.Forms.ComboBox cb_CategorySearch;
         private System.Windows.Forms.Button btn_RefreshData;
         private System.Windows.Forms.Button btn_Preview;
-        private System.Windows.Forms.Button btn_DownloadDocument;
         private System.Windows.Forms.Button btn_AddToFavourite;
         private System.Windows.Forms.Label label_SearchByName;
         private System.Windows.Forms.Label label_Major;

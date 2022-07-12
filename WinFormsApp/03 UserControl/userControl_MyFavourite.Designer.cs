@@ -36,7 +36,6 @@
             this.tb_Search = new System.Windows.Forms.TextBox();
             this.label_Search = new System.Windows.Forms.Label();
             this.btn_RemoveFavourite = new System.Windows.Forms.Button();
-            this.btn_Download = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FavouriteList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,22 +152,10 @@
             this.btn_RemoveFavourite.UseVisualStyleBackColor = true;
             this.btn_RemoveFavourite.Click += new System.EventHandler(this.btn_RemoveFavourite_Click);
             // 
-            // btn_Download
-            // 
-            this.btn_Download.Enabled = false;
-            this.btn_Download.Location = new System.Drawing.Point(1283, 254);
-            this.btn_Download.Name = "btn_Download";
-            this.btn_Download.Size = new System.Drawing.Size(112, 69);
-            this.btn_Download.TabIndex = 6;
-            this.btn_Download.Text = "Download Document";
-            this.btn_Download.UseVisualStyleBackColor = true;
-            this.btn_Download.Click += new System.EventHandler(this.btn_Download_Click);
-            // 
             // userControl_MyFavourite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btn_Download);
             this.Controls.Add(this.btn_RemoveFavourite);
             this.Controls.Add(this.label_Search);
             this.Controls.Add(this.tb_Search);
@@ -196,6 +183,5 @@
         private System.Windows.Forms.TextBox tb_Search;
         private System.Windows.Forms.Label label_Search;
         private System.Windows.Forms.Button btn_RemoveFavourite;
-        private System.Windows.Forms.Button btn_Download;
     }
 }

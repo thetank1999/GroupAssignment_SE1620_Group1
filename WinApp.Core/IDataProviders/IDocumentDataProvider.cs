@@ -53,6 +53,8 @@ namespace WinApp.Core
 
         public List<Document> GetAllApprovedDocumentByCategory(int categoryId);
 
+        public List<Document> GetAllNotApprovedDocument();
+
         #endregion
     }
 }

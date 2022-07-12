@@ -89,7 +89,7 @@
             // 
             // btn_ApproveDocument
             // 
-            this.btn_ApproveDocument.Location = new System.Drawing.Point(12, 568);
+            this.btn_ApproveDocument.Location = new System.Drawing.Point(12, 445);
             this.btn_ApproveDocument.Name = "btn_ApproveDocument";
             this.btn_ApproveDocument.Size = new System.Drawing.Size(183, 98);
             this.btn_ApproveDocument.TabIndex = 4;
@@ -100,7 +100,7 @@
             // 
             // btn_DocumentManagement
             // 
-            this.btn_DocumentManagement.Location = new System.Drawing.Point(12, 685);
+            this.btn_DocumentManagement.Location = new System.Drawing.Point(12, 445);
             this.btn_DocumentManagement.Name = "btn_DocumentManagement";
             this.btn_DocumentManagement.Size = new System.Drawing.Size(183, 98);
             this.btn_DocumentManagement.TabIndex = 5;
@@ -111,7 +111,7 @@
             // 
             // btn_UserManagement
             // 
-            this.btn_UserManagement.Location = new System.Drawing.Point(12, 805);
+            this.btn_UserManagement.Location = new System.Drawing.Point(12, 565);
             this.btn_UserManagement.Name = "btn_UserManagement";
             this.btn_UserManagement.Size = new System.Drawing.Size(183, 98);
             this.btn_UserManagement.TabIndex = 6;

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,7 @@ namespace WinApp
 {
     public partial class userControl_MyFavourite : UserControl
     {
+        #region [ Fields ]
         private readonly IUserDataProviders _userDataProvider;
         private readonly IMajorDataProvider _majorDataProvider;
         private readonly IFavouriteDataProvider _favouriteDataProvider;
@@ -21,6 +24,9 @@ namespace WinApp
         private readonly ICategoryDataProvider _categoryDataProvider;
         private readonly IDataHelper _datahelper;
         private readonly User _user;
+        #endregion
+
+        #region [ Ctor ]
         public userControl_MyFavourite( IUserDataProviders userDataProvider,
                                         IMajorDataProvider majorDataProvider,
                                         IFavouriteDataProvider favouriteDataProvider,
@@ -38,7 +44,7 @@ namespace WinApp
             this.InitializeComponent();
             this.LoadDataIntoDGV(this.GetFavouriteDocuments(this._user));
         }
-
+        #endregion
         private void tb_Search_TextChanged(object sender, EventArgs e) {
             var searchString = tb_Search.Text;
             var result = this.GetFavouriteDocuments(this._user).Where(x => x.DocumentUrl.Contains(searchString)).ToList();
@@ -46,7 +52,8 @@ namespace WinApp
         }
 
         private void btn_PreviewDocument_Click(object sender, EventArgs e) {
-
+            var documentId = Int32.Parse(dgv_FavouriteList.SelectedRows[0].Cells[0].Value.ToString());
+            this.OpenFile(documentId);
         }
 
         private void btn_Refresh_Click(object sender, EventArgs e) {
@@ -91,6 +98,18 @@ namespace WinApp
             }
         }
 
-
+        #region [ Open File ]
+        private void OpenFile(int id) {
+            var dbDocument = _documentDataProvider.GetDocumentById(id);
+            var newFileName = dbDocument.DocumentUrl.Replace(dbDocument.DocumentType, DateTime.Now.ToString("ddMMyyyyhhmmss")) + dbDocument.DocumentType;
+            File.WriteAllBytes(newFileName, dbDocument.DocumentData);
+            //System.Diagnostics.Process.Start(newFileName);
+            var p = new Process();
+            p.StartInfo = new ProcessStartInfo(newFileName) {
+                UseShellExecute = true
+            };
+            p.Start();
+        }
+        #endregion
     }
 }

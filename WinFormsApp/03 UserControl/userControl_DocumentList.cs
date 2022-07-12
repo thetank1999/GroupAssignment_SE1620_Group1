@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinApp.Core;
 using WinApp.SqlProvider;
@@ -46,11 +44,9 @@ namespace WinApp
         private void dgv_DocumentList_CellContentClick(object sender, DataGridViewCellEventArgs e) {
             if (dgv_DocumentList.SelectedRows.Count == 1) {
                 btn_AddToFavourite.Enabled = true;
-                btn_DownloadDocument.Enabled = true;
                 btn_Preview.Enabled = true;
             } else {
                 btn_AddToFavourite.Enabled = false;
-                btn_DownloadDocument.Enabled = false;
                 btn_Preview.Enabled = false;
             }
         }
@@ -62,21 +58,26 @@ namespace WinApp
         #endregion
         #region [ ComboBox Selected Index Changed ]
         private void cb_CategorySearch_SelectedIndexChanged(object sender, EventArgs e) {
-
+            if (cb_CategorySearch.SelectedIndex <= 0) {
+                var dbCategory = cb_CategorySearch.SelectedItem as Category;
+                var tempDocumentList = this._documentList.Where(x => x.CategoryId == dbCategory.CategoryId).ToList();
+                this.LoadDataIntoDgv(tempDocumentList);
+            }
         }
       
         private void cb_MajorSearch_SelectedIndexChanged(object sender, EventArgs e) {
-
+            if (cb_MajorSearch.SelectedIndex <= 0) {
+                var dbMajor = cb_MajorSearch.SelectedItem as Major;
+                var tempDocumentList = this._documentList.Where(x => x.MajorId == dbMajor.MajorId).ToList();
+                this.LoadDataIntoDgv(tempDocumentList);
+            }
         }
         #endregion
 
         #region [ Button Events ]
         private void btn_Preview_Click(object sender, EventArgs e) {
-
-        }
-
-        private void btn_DownloadDocument_Click(object sender, EventArgs e) {
-
+            var documentId = Int32.Parse(dgv_DocumentList.SelectedRows[0].Cells[0].Value.ToString());
+            this.OpenFile(documentId);
         }
 
         private void btn_AddToFavourite_Click(object sender, EventArgs e) {
@@ -89,6 +90,7 @@ namespace WinApp
                 dbEntity.UserId = this._user.UserId;
                 dbEntity.DocumentId = documentId;
                 _favouriteDataProvider.AddFavourite(dbEntity);
+                MessageBox.Show("Added as a favourite.");
             }
         }
 
@@ -105,6 +107,7 @@ namespace WinApp
         }
 
         private void LoadDataIntoDgv(List<Document> documentList) {
+            dgv_DocumentList.Rows.Clear();
             foreach (var document in documentList) {
                 var dbMajor = this._majorDataProvider.GetMajorById(document.MajorId);
                 var dbCategory = this._categoryDataProvider.GetCategoryById(document.CategoryId);
@@ -141,6 +144,20 @@ namespace WinApp
             foreach (var category in categoryList) {
                 cb_CategorySearch.Items.Add(category);
             }
+        }
+        #endregion
+
+        #region [ Open File ]
+        private void OpenFile(int id) {
+            var dbDocument = _documentDataProvider.GetDocumentById(id);
+            var newFileName = dbDocument.DocumentUrl.Replace(dbDocument.DocumentType, DateTime.Now.ToString("ddMMyyyyhhmmss")) + dbDocument.DocumentType;
+            File.WriteAllBytes(newFileName, dbDocument.DocumentData);
+            //System.Diagnostics.Process.Start(newFileName);
+            var p = new Process();
+            p.StartInfo = new ProcessStartInfo(newFileName) {
+                UseShellExecute = true
+            };
+            p.Start();
         }
         #endregion
     }

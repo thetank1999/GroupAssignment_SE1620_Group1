@@ -26,6 +26,12 @@
         /// </summary>
         private void InitializeComponent() {
             this.dgv_UploadList = new System.Windows.Forms.DataGridView();
+            this.DocumentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DocumentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Major = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsApproved = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApprovedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label_PersonalUpload = new System.Windows.Forms.Label();
             this.btn_RefreshData = new System.Windows.Forms.Button();
             this.btn_Delete = new System.Windows.Forms.Button();
@@ -38,12 +44,6 @@
             this.cb_IsApproved = new System.Windows.Forms.ComboBox();
             this.btn_UploadDocument = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.DocumentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DocumentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Major = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsApproved = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApprovedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_UploadList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,6 +71,55 @@
             this.dgv_UploadList.TabIndex = 8;
             this.dgv_UploadList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_UploadList_CellContentClick);
             // 
+            // DocumentId
+            // 
+            this.DocumentId.HeaderText = "Document Id";
+            this.DocumentId.MinimumWidth = 8;
+            this.DocumentId.Name = "DocumentId";
+            this.DocumentId.ReadOnly = true;
+            this.DocumentId.Visible = false;
+            this.DocumentId.Width = 150;
+            // 
+            // DocumentName
+            // 
+            this.DocumentName.HeaderText = "Document Name";
+            this.DocumentName.MinimumWidth = 8;
+            this.DocumentName.Name = "DocumentName";
+            this.DocumentName.ReadOnly = true;
+            this.DocumentName.Width = 200;
+            // 
+            // Major
+            // 
+            this.Major.HeaderText = "Major";
+            this.Major.MinimumWidth = 8;
+            this.Major.Name = "Major";
+            this.Major.ReadOnly = true;
+            this.Major.Width = 200;
+            // 
+            // Category
+            // 
+            this.Category.HeaderText = "Category";
+            this.Category.MinimumWidth = 8;
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
+            this.Category.Width = 200;
+            // 
+            // IsApproved
+            // 
+            this.IsApproved.HeaderText = "IsApproved";
+            this.IsApproved.MinimumWidth = 8;
+            this.IsApproved.Name = "IsApproved";
+            this.IsApproved.ReadOnly = true;
+            this.IsApproved.Width = 200;
+            // 
+            // ApprovedBy
+            // 
+            this.ApprovedBy.HeaderText = "ApprovedBy";
+            this.ApprovedBy.MinimumWidth = 8;
+            this.ApprovedBy.Name = "ApprovedBy";
+            this.ApprovedBy.ReadOnly = true;
+            this.ApprovedBy.Width = 250;
+            // 
             // label_PersonalUpload
             // 
             this.label_PersonalUpload.AutoSize = true;
@@ -83,7 +132,7 @@
             // 
             // btn_RefreshData
             // 
-            this.btn_RefreshData.Location = new System.Drawing.Point(1238, 195);
+            this.btn_RefreshData.Location = new System.Drawing.Point(1238, 322);
             this.btn_RefreshData.Name = "btn_RefreshData";
             this.btn_RefreshData.Size = new System.Drawing.Size(112, 69);
             this.btn_RefreshData.TabIndex = 10;
@@ -166,7 +215,7 @@
             // 
             // btn_UploadDocument
             // 
-            this.btn_UploadDocument.Location = new System.Drawing.Point(1238, 502);
+            this.btn_UploadDocument.Location = new System.Drawing.Point(1238, 195);
             this.btn_UploadDocument.Name = "btn_UploadDocument";
             this.btn_UploadDocument.Size = new System.Drawing.Size(112, 74);
             this.btn_UploadDocument.TabIndex = 19;
@@ -182,55 +231,6 @@
             this.label1.Size = new System.Drawing.Size(142, 25);
             this.label1.TabIndex = 20;
             this.label1.Text = "Approval Status:";
-            // 
-            // DocumentId
-            // 
-            this.DocumentId.HeaderText = "Document Id";
-            this.DocumentId.MinimumWidth = 8;
-            this.DocumentId.Name = "DocumentId";
-            this.DocumentId.ReadOnly = true;
-            this.DocumentId.Visible = false;
-            this.DocumentId.Width = 150;
-            // 
-            // DocumentName
-            // 
-            this.DocumentName.HeaderText = "Document Name";
-            this.DocumentName.MinimumWidth = 8;
-            this.DocumentName.Name = "DocumentName";
-            this.DocumentName.ReadOnly = true;
-            this.DocumentName.Width = 200;
-            // 
-            // Major
-            // 
-            this.Major.HeaderText = "Major";
-            this.Major.MinimumWidth = 8;
-            this.Major.Name = "Major";
-            this.Major.ReadOnly = true;
-            this.Major.Width = 200;
-            // 
-            // Category
-            // 
-            this.Category.HeaderText = "Category";
-            this.Category.MinimumWidth = 8;
-            this.Category.Name = "Category";
-            this.Category.ReadOnly = true;
-            this.Category.Width = 200;
-            // 
-            // IsApproved
-            // 
-            this.IsApproved.HeaderText = "IsApproved";
-            this.IsApproved.MinimumWidth = 8;
-            this.IsApproved.Name = "IsApproved";
-            this.IsApproved.ReadOnly = true;
-            this.IsApproved.Width = 200;
-            // 
-            // ApprovedBy
-            // 
-            this.ApprovedBy.HeaderText = "ApprovedBy";
-            this.ApprovedBy.MinimumWidth = 8;
-            this.ApprovedBy.Name = "ApprovedBy";
-            this.ApprovedBy.ReadOnly = true;
-            this.ApprovedBy.Width = 250;
             // 
             // userControl_UploadDocument
             // 
