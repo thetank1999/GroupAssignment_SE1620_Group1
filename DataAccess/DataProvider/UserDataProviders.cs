@@ -62,10 +62,12 @@ namespace WinApp.DataProviders
         }
 
         public void InActivateUser(User user) {
-            throw new NotImplementedException();
+            user.UserStatus = false;
+            this.UpdateUser(user);
         }
         public void ActivateUser(User user) {
-            throw new NotImplementedException();
+            user.UserStatus = true;
+            this.UpdateUser(user);
         }
 
         #endregion
@@ -74,7 +76,7 @@ namespace WinApp.DataProviders
         public User GetUserLogin(string email, string password) {
             User user = null;
             try {
-                user = _dbContext.Users.FirstOrDefault(x => x.UserEmail.Equals(email)&& x.UserPassword.Equals(password));
+                user = _dbContext.Users.FirstOrDefault(x => x.UserEmail.Equals(email) && x.UserPassword.Equals(password) && x.UserStatus == true);
             } catch (Exception ex) {
 
                 throw new Exception(ex.ToString());
