@@ -18,6 +18,7 @@ namespace WinApp
         private readonly IUserDataProviders _userDataProvider;
         private readonly IRoleDataProvider _roleDataProvider;
         private readonly IMajorDataProvider _majorDataProvider;
+        private readonly IDataHelper _dataHelper;
         private readonly User _user;
         private List<User> _userList;
         private List<Major> _majorList;
@@ -25,13 +26,15 @@ namespace WinApp
         #endregion
 
         #region [ CTor ]
-        public userControl_UserManagementAdmin(  IUserDataProviders userDataProvider,
-                                            IRoleDataProvider roleDataProvider,
-                                            IMajorDataProvider majorDataProvider,
-                                            User user) {
+        public userControl_UserManagementAdmin( IUserDataProviders userDataProvider,
+                                                IRoleDataProvider roleDataProvider,
+                                                IMajorDataProvider majorDataProvider,
+                                                IDataHelper dataHelper,
+                                                User user) {
             this._userDataProvider = userDataProvider;
             this._roleDataProvider = roleDataProvider;
             this._majorDataProvider = majorDataProvider;
+            this._dataHelper = dataHelper;
             this._user = user;
             this._majorList = this._majorDataProvider.GetAllMajors();
             this._userList = this._userDataProvider.GetAllUsers();
@@ -40,6 +43,7 @@ namespace WinApp
 
             this.LoadDataIntoCBs(_majorList, _roleList);
             this.LoadDataIntoDGV(_userList);
+            
         }
         #endregion
 
@@ -47,6 +51,12 @@ namespace WinApp
         private void btn_Update_Click(object sender, EventArgs e) {
             var id =Int32.Parse(dgv_UserList.SelectedRows[0].Cells[0].Value.ToString());
             var dbUser = this._userDataProvider.GetUser(id);
+            var frmUpdateInformation = new frmUpdateInformation(_userDataProvider,
+                                                                _roleDataProvider,
+                                                                _majorDataProvider,
+                                                                _dataHelper,
+                                                                dbUser);
+            frmUpdateInformation.ShowDialog();
         }
 
         private void btn_Refresh_Click(object sender, EventArgs e) {
@@ -55,6 +65,9 @@ namespace WinApp
         private void btn_ChangePassword_Click(object sender, EventArgs e) {
             var id = Int32.Parse(dgv_UserList.SelectedRows[0].Cells[0].Value.ToString());
             var dbUser = this._userDataProvider.GetUser(id);
+            var frmChangePasswordAdmin = new frmChangePasswordAdmin(_userDataProvider,
+                                                                    dbUser);
+            frmChangePasswordAdmin.ShowDialog();
         }
         #endregion
 

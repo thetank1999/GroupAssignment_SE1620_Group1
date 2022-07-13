@@ -27,8 +27,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="04 Additional Forms\04 User Information\" />
-  </ItemGroup>
-
 </Project>

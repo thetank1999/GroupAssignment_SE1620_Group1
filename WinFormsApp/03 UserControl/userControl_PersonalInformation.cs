@@ -19,17 +19,20 @@ namespace WinApp
         private readonly IUserDataProviders _userDataProvider;
         private readonly IRoleDataProvider _roleDataProvider;
         private readonly IMajorDataProvider _majorDataProvider;
-        private readonly User _user;
+        private readonly IDataHelper _dataHelper;
+        private User _user;
         #endregion
 
         #region [ Ctor ] 
         public userControl_PersonalInformation(IUserDataProviders userDataProvider,
                                                IRoleDataProvider roleDataProvider,
                                                IMajorDataProvider majorDataProvider,
+                                               IDataHelper dataHelper,
                                                User user) {
             this._userDataProvider = userDataProvider;
             this._roleDataProvider = roleDataProvider;
             this._majorDataProvider = majorDataProvider;
+            this._dataHelper = dataHelper;
             this._user = user;
             InitializeComponent();
             this.LoadData(user);
@@ -43,8 +46,18 @@ namespace WinApp
         }
 
         private void btn_ChangePassword_Click(object sender, EventArgs e) {
-            var frmChangePassword = new frmChangePassword(_user, _userDataProvider);
+            var frmChangePassword = new frmChangePassword( this._user, this._userDataProvider);
             frmChangePassword.ShowDialog();
+        }
+
+        private void btn_UpdateInformation_Click(object sender, EventArgs e) {
+            var frmChangeInformation = new frmChangeInformationUser(this._userDataProvider, this._majorDataProvider, this._dataHelper, this._user);
+            frmChangeInformation.ShowDialog();
+        }
+
+        private void btn_Refresh_Click(object sender, EventArgs e) {
+            var dbUser = _userDataProvider.GetUser(this._user.UserId);
+            this.LoadData(dbUser);
         }
     }
 }

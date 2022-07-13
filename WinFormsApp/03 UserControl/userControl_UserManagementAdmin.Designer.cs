@@ -205,7 +205,7 @@
             this.Controls.Add(this.label_Title);
             this.Controls.Add(this.btn_Update);
             this.Controls.Add(this.dgv_UserList);
-            this.Name = "userControl_UserManagementAdmin";
+            //this.Name = "userControl_UserManagementAdmin";
             this.Size = new System.Drawing.Size(1426, 1051);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_UserList)).EndInit();
             this.ResumeLayout(false);

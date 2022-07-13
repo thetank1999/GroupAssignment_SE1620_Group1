@@ -14,7 +14,7 @@ namespace WinApp.DataProviders
             var trimmedEmail = email.Trim();
 
             if (trimmedEmail.EndsWith(".")) {
-                return false; // suggested by @TK-421
+                return false;
             }
             try {
                 var addr = new System.Net.Mail.MailAddress(email);

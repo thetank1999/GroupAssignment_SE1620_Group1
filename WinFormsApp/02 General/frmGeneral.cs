@@ -122,7 +122,8 @@ namespace WinApp
             // personal infor
             this._ucPersonalInfo = new userControl_PersonalInformation(_userDataProvider, 
                                                                         _roleDataProvider, 
-                                                                        _majorDataProvider, 
+                                                                        _majorDataProvider,
+                                                                        _datahelper,
                                                                         _user);
             panel_General.Controls.Add(this._ucPersonalInfo);
             this._ucPersonalInfo.Dock = DockStyle.Fill;
@@ -181,6 +182,7 @@ namespace WinApp
                 this._ucUserManagement = new userControl_UserManagementAdmin(_userDataProvider,
                                                                                 _roleDataProvider,
                                                                                 _majorDataProvider,
+                                                                                _datahelper,
                                                                                 _user);
                 panel_General.Controls.Add(this._ucUserManagement);
                 this._ucUserManagement.Dock = DockStyle.Fill;
