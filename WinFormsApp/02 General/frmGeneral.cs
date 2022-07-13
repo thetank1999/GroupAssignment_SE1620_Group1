@@ -29,7 +29,7 @@ namespace WinApp
         private userControl_UploadDocument _ucUploadDocument;
         private userControl_ApproveDocument _ucApproveDocument;
         private userControl_DocumentManagement _ucDocumentManagement;
-        private userControl_UserManagement _ucUserManagement;
+        private userControl_UserManagementAdmin _ucUserManagement;
         #endregion
 
         #region [ Ctor ]
@@ -178,6 +178,12 @@ namespace WinApp
                 panel_General.Controls.Add(this._ucDocumentManagement);
                 this._ucDocumentManagement.Dock = DockStyle.Fill;
                 // user management
+                this._ucUserManagement = new userControl_UserManagementAdmin(_userDataProvider,
+                                                                                _roleDataProvider,
+                                                                                _majorDataProvider,
+                                                                                _user);
+                panel_General.Controls.Add(this._ucUserManagement);
+                this._ucUserManagement.Dock = DockStyle.Fill;
             }
         }
         #endregion
