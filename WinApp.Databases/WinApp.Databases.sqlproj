@@ -131,5 +131,6 @@
     <None Include="Tables\Category.sql" />
     <None Include="Tables\Document.sql" />
     <None Include="Tables\Favourite.sql" />
+    <None Include="Tables\MasterScript.sql" />
   </ItemGroup>
 </Project>
