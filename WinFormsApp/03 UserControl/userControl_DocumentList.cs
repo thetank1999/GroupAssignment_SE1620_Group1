@@ -120,7 +120,7 @@ namespace WinApp
 
         private List<Document> SearchDocumentByName(List<Document> documentList, string searchString) {
             var result = new List<Document>();
-            result = _documentList.Where(x => x.DocumentUrl.Contains(searchString)).ToList();
+            result = _documentList.Where(x => x.DocumentUrl.Contains(searchString, StringComparison.InvariantCultureIgnoreCase)).ToList();
             return result;
         }
 

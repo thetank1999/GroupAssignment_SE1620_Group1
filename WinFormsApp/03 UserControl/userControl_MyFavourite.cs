@@ -74,9 +74,6 @@ namespace WinApp
                 btn_PreviewDocument.Enabled = false;
             }
         }
-        private void btn_Download_Click(object sender, EventArgs e) {
-
-        }
         private List<Document> GetFavouriteDocuments(User user) {
             var favouriteList = new List<Favourite>();
             favouriteList = this._favouriteDataProvider.GetFavouritesByUserId(user.UserId);
